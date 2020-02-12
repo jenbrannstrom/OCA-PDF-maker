@@ -1,0 +1,422 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">     
+
+        <title>Free Personality Test </title>
+        <link rel="stylesheet" href="{% static 'css/combined-styles.min.css' %}" />
+
+        <!-- Facebook Pixel Code -->
+
+    
+        <!-- End Facebook Pixel Code -->    
+
+    </head>
+    <body> 
+      
+        <header>
+            <div id="logo">
+                <img src="{% static 'images/logo_en.png' %}" />
+            </div>
+            <div id="logo_spacer"></div>
+            <h1>"Book-Only" Personality Test<span id="personality_text"> | <span class="font-blue"></span>Oxford Capacity Analysis</span>
+            {% if superuser %}
+                <a href="{% url 'user_detail' %}"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Admin Panel</a>
+            {% endif %}
+            </h1>
+        </header>
+        <main>
+            <nav class="header-docker">
+                <ul>
+                    <li><a href="#test_description">What is the OCA?</a></li>
+                    <li><a href="#how-it-works">How it works</a></li>
+                    <li><a href="#personal-success">Personal Successes</a></li>
+                </ul>
+            </nav>
+
+            <section class="description">
+                <div id="test_description">
+                    <h2>World's most accurate and reliable </h2><h3>Personality Test: Free</h3>
+                    <div class="pie-chart">
+                        <div class="chart">
+                            <img src="{% static 'images/oca.jpg' %}" />
+                        </div>
+                        <div class="chart-link">
+                            <!--<a href="what-makes-oca-unique.html">Find out more&nbsp;<span class="arrow-right-small"></span></a>-->
+                        </div>
+                    </div>
+                    <p>Will you be successfull? Can you be happy? What forces are stopping you from achieving great things in life? This personality test has helped millions find out the answer to those questions. Your IQ and personality will determine your future. This is the only test of its kind because it will give you an <b>accurate picture of YOU</b>. You will receive a one-on-one consultation with practical tips just for your needs.</p>
+                    <p>You are a unique individual with your own personality. Discover the personality traits that will help you to achieve great things in life. Don't let others hold you back from your true potential.</p>
+                </div>
+                <div id="test_form">
+                    <div class="form-box">
+                        
+                        <div class="privacy-info-box">
+                            
+                        </div>
+                        
+                        <div class="form-content">
+                            <form id="oca_start_form" method="POST" action="{% url 'registeration' %}"> {% csrf_token %}
+                          
+                                <h3>My problem is:</h3>
+                                <div class="form-field">
+                                    <div class="field-group">
+                                        <div class="col">
+                                            <label class="box new-radio-inputs-first"><input type="radio" name="choose" value="stress" checked /> Stress</label>
+                                            <label class="box new-radio-inputs-first"><input type="radio" name="choose" value="health"/> Health</label>
+                                           <!--  <label class="box new-radio-inputs-first career"><input type="radio" name="choose" value="career" /> career</label> -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-field">
+                                    <div class="field-group">
+                                        <div class="col">
+                                            <label class="box new-radio-inputs"><input type="radio" name="choose" value="relationships"/> Relationships</label>
+                                            <label class="box new-radio-inputs"><input type="radio" name="choose" value="money"/> Money</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <input type="hidden" name="fname" value="" />
+                                <input type="hidden" name="lname" value="" />
+                                <input type="hidden" name="country" value="US" />
+                                <input type="hidden" name="countryname" value="United States" />
+                                <input type="hidden" name="zipcode" value="0" />
+                                <input type="hidden" name="origin" value="original" />
+                              
+								<div class="form-field">
+                                    <label>Name</label><br>
+                                    <input type="text" id="full_name" name="fname" placeholder="First & Last" required/>
+                                </div>
+                                <div class="form-field">
+                                    <label>Email</label><br>
+                                    <input type="email" id="email" name="email" placeholder="@email" data-paminta="email" required/>
+                                </div>
+                                <div class="form-field">
+                                    <div class="field-group">
+                                        <label class="col col-left">Age</label>
+                                        <div class="col">
+                                            <input type="number" name="age" placeholder="your age" data-paminta="text" required/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-field">
+                                    <div class="field-group">
+                                        <label class="col col-left">Gender</label>
+                                        <div class="col">
+                                            <label class="box"><input type="radio" name="gender" value="male" /> Male</label><!--
+                                            --><label class="box"><input type="radio" name="gender" value="female" checked="true"/> Female</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-field">
+                                    <div class="field-group">
+                                        <label class="col col-left">Cell</label>
+                                        <div class="col">
+                                            <input type="tel" id="phone" name="phone" placeholder="cell phone" data-paminta="text"  required />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-field">
+                                    <div class="field-group">
+                                        <div class="col col-left">
+                                            <input type="checkbox" name="concent" checked="true">
+                                        </div>
+                                        <label class="col" style="font-weight:normal;">Yes, please SMS me</label>
+                                    </div>
+                                </div>
+                                <div class="form-field">
+                                    <button type="submit" class="glass-button">START TEST</button>
+                                </div>
+                                <!-- <input type="hidden" name="orgid" value="tpa" /> -->
+                            </form>
+                        </div>
+                    </div>
+                </div>     
+		          
+            </section>
+            <section  id="how-it-works" class="how-it-works">
+                <h2>HOW IT <b>WORKS</b></h2>
+                <ul>
+                    <li>
+                        <div class="text">
+                            <h4>Step 1: <span class="step-text">TAKE THE TEST</span></h4>
+                            <p>
+                                This test will show you the <b>10 most important parts of your personality</b>. These are called 'traits' and they influence your whole life and your future. 
+								You can take the test in about an hour. You can do it right now by clicking "Start Test"
+                            </p>
+                        </div>
+                        <div class="image">
+                            <img src="{% static 'images/step-1.jpg' %}" />
+                        </div>
+                    </li>
+                    <li>
+                        <div class="text">
+                            <h4>Step 2: <span class="step-text">GET YOUR RESULTS</span></h4>
+                            <p>
+                                Visit us at either:<br>
+								<br>
+								Call: (813) 872-0722<br>
+                                Email: tampa@scientology.net<br>
+                                1300 East 8th Avenue<br>
+                                Tampa, FL 33605<br>
+								<br>
+								and receive your personal consultation
+                            </p>
+                        </div>
+                        <div class="image">
+                            <!-- <img src="https://f.edgesuite.net/imagecache/gcui_inline_default/data/www.scientology.org/files/church-of-scientology-tampa-exterior-day.jpg" /> -->
+                        </div>
+                    </li>
+                    <li>
+                        <div class="text">
+                            <h4>Step 3: <span class="step-text">CONSULTATION</span></h4>
+                            <p>
+                                You will get a better understanding of yourself. Your personal strengths and weaknesses. You'll discover how best to fix any weakness. You will get a free, one-on-one consultation with a specialist so you really understand the test results.
+                            </p>
+                        </div>
+                        <div class="image">
+                            <img src="{% static 'images/step-3.jpg' %}" />
+                        </div>
+                    </li>
+                </ul>
+            </section>
+            <section class="what-makes-it-unique">
+                <h2>WHAT MAKES THIS PERSONALITY TEST SO <b>POWERFUL?</b></h2>
+                <p>
+                    No other personality test gives you both a test-result and real solutions.
+                </p>
+                <p>
+                    You can be more competent, successful and happier than you ever thought possible, once you find the key areas of your life holding you back. By discovering which traits are currently benefitting your life and which ones need improvement, you can then take the necessary steps to increase your strengths and overcome your weaknesses.
+                </p>
+                <p>
+                    This test and the consultation are a FREE public service - no purchase necessary. Usual price $435.  
+                </p>
+                <div class="oca-graph-block">
+                    <div class="oca-graph"><img src="{% static 'images/graph.png' %}" /></div>
+                    <div class="oca-note">
+                        <div class="text font-blue">
+                            Apart from the test results, many who 
+							do the recommended courses get real improvement 
+							in their lives and even IQ score!
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="the-real-you">
+                <h2>you <b>can</b> change your personality</h2>
+                <p>
+                    Very likely most of your life you’ve been taught to believe that personality cannot be changed. You you just have to “deal with it.” This simply is not true. The fact is, <b>you can change your personality</b> and become a much better, happier version of yourself that faces and conquers the challenges of life with knowledge and ease — <b>the real you.</b>
+                </p>
+                <ul>
+                    <li>Find your problem areas and discover your level of happiness, self-confidence, stability and more.</li>
+                    <li>Find out how your personality determines your ability to handle relationships.</li>
+                    <li>Know your strengths and how to increase them so that you can get more out of life.</li>
+                </ul>
+            </section>
+            <section id="personal-success" class="personal-success">
+                <h2>Real People <b>Real Successes</b></h2>
+                <ul>
+                    <li>
+                        <div class="image">
+                            <img src="{% static 'images/success-1.jpg' %}" />
+                        </div><!--
+                        --><div class="text">
+                            <h4> David: </h4>
+                            <p>
+                                <blockquote>
+                                    “I found a lot of answers that I’ve always been looking for and some I didn’t realize I was looking for that showed up. It almost seemed too simple, like ‘is it really that easy? It really is!’
+                                </blockquote>
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="image">
+                            <img src="{% static 'images/success-2.jpg' %}" />
+                        </div><!--
+                        --><div class="text">
+                            <h4> Daniella: </h4>
+                            <p>
+                                <blockquote>
+                                    “With what I learned I have been able to succeed in my field, at my job, and I have to say that it has really helped me to achieve my dreams, and achieve them in the best way possible.” — Daniella
+                                </blockquote>
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="image">
+                            <img src="{% static 'images/success-3.jpg' %}" />
+                        </div><!--
+                        --><div class="text">
+                            <h4> Cynthia: </h4>
+                            <p>
+                                <blockquote>
+                                    “I was very insecure, and wondered why I was not succeeding in life. Now I have a lot of certainty. I can deal with people better and can help them better. Now I know me!” — Cynthia
+                                </blockquote>
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="image">
+                            <img src="{% static 'images/success-4.jpg' %}" />
+                        </div><!--
+                        --><div class="text">
+                            <h4> Shawn: </h4>
+                            <p>
+                                <blockquote>
+                                    “I’m very much an outdoors, rough and tumble kind of guy. Now my interaction with people is tremendously better. My wife and I get along amazingly. Day-to-day life is a joy. There’s nothing that we don’t seem to be able to handle now.” — Shawn
+                                </blockquote>
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+            <section class="questionnaire">
+                <div class="questionnaire-box">
+                    <div class="questions-block">
+                        <ul>
+                            <li class="center"><div><span class="number">1.</span> Do you make thoughtless remarks or accusations which later you regret?</div></li>
+                            <li class="right"><div><span class="number">2.</span> When others are getting rattled, do you remain fairly composed?</div></li>
+                            <li class="right"><div><span class="number">3.</span> Do you browse through railway timetables, directories, or dictionaries just for pleasure?</div></li>
+                            <li class="right"><div><span class="number">4.</span> When asked to make a decision, would you be swayed by your like or dislike of the personality involved?</div></li>
+                            <li class="right"><div><span class="number">5.</span> Do you intend two or less children in your family even though your health and income will permit more?</div></li>
+                            <li class="right"><div><span class="number">6.</span> Do you get occasional twitches of your muscles, when there is no logical reason for it?</div></li>
+                            <li class="right"><div><span class="number">7.</span> Would you prefer to be in a position where you did not have the responsibilities of making decisions?</div></li>
+                            <li class="right"><div><span class="number">8.</span> Are your actions considered unpredictable by other people?</div></li>
+                            <li class="right"><div><span class="number">9.</span> Do you consider more money should be spent on social security?</div></li>
+                            <li class="right"><div><span class="number">10.</span> Do other people interest you very much?</div></li>
+                            <li class="right"><div><span class="number">11.</span> Is your voice monotonous, rather than varied in pitch?</div></li>
+                            <li class="right"><div><span class="number">12.</span> Do you normally let the other person start the conversation?</div></li>
+                            <li class="right"><div><span class="number">13.</span> Are you readily interested in other people's conversations?</div></li>
+                            <li class="right"><div><span class="number">14.</span> Would the idea of inflicting pain on game, small animals or fish prevent you from hunting or fishing?</div></li>
+                            <li class="right"><div><span class="number">15.</span> Are you often impulsive in your behavior?</div></li>
+                            <li class="right">
+                                <div class="complete">
+                                    <div>Processing your answers.</div>
+                                    <div><img src="{% static 'images/loader.svg' %}" /></div>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="arrow-prev">
+                            <div class="button"></div>
+                        </div>
+                        <div class="arrow-next">
+                            <div class="button"></div>
+                        </div>
+                    </div>
+                    <div class="choices-block">
+                        <div>
+                            <ul>
+                                <li class="answer-yes" data-ans="y">
+                                    YES
+                                </li><li class="answer-maybe" data-ans="m">
+                                    MAYBE
+                                </li><li class="answer-no" data-ans="n">
+                                    NO
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="hint-block-kbd">
+                        <div class="hint-box">
+                            <div class="image">
+                                <img src="{% static 'images/kayboard-nums.png' %}" />
+                            </div>
+                            <div class="text">
+                                <span class="font-blue">Hint: use your keyboard to answer!</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="progress-block">
+                        <div>
+                            <div class="label">— TEST PROGRESS —</div>
+                            <div id="progress_bar">
+                                <div class="meter-bar">
+                                    <div class="meter-point"></div>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-load"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="questionnaire_intro">
+                    <div class="modal-box">
+                        <h3>Hello <span class="tester-name font-blue">Unknown</span>, and <b>welcome</b> to the Oxford Capacity Analysis!</h3>
+                        <p>Please read these quick & simple instructions so you know what to do:</p>
+                        <ul>
+                            <li><span class="font-blue">Make sure you understand and answer each question:</span> You must complete the test to get your results!</li>
+                            <li><span class="font-blue">Do not stay too long with one question.</span>Answer it as soon as you understand it and go on to the next question.</li>
+                            <li><span class="font-blue">Give your answer for how things are for you right now.</span></li>
+                        </ul>
+                        <h3>Ready to learn more about yourself?</h3>
+                        <br />
+                        <div class="button-ok">
+                            <div class="glass-button">START TEST</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer style="clear:both">
+            <div class="copyright">
+                &copy; 2016 Church of Scientology. All Rights Reserved.
+            </div>
+            <nav class="footer-links">
+                <a href="privacy-notice.html">Privacy Notice</a>
+                -
+                 <a href="terms-of-use.html">Terms of Use</a>
+                -
+                 <a href="legal-notice.html">Legal Notice</a>
+
+            </nav>
+        </footer>
+<div class="loader-img">
+        <div class="modal" id="loading"><!-- Place at bottom of page --></div>
+    </div>
+
+        <style>
+            section.description,
+            section.how-it-works,
+            section.what-makes-it-unique,
+            section.the-real-you,
+            section.personal-success,
+            section.questionnaire
+            {
+                transition: all 500ms ease;
+                display: block;
+            }
+            section.questionnaire {
+                opacity: 0;
+                display: none;
+            }
+        </style>
+
+        <script
+          src="https://code.jquery.com/jquery-2.2.4.min.js"
+          integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+          crossorigin="anonymous"></script>
+        <script src="{% static 'js/notify.min.js' %}"></script>
+        <script src="{% static 'js/paminta.js' %}"></script>
+        <script src="{% static 'js/onsubmit.js' %}"></script>
+        <script>
+            $(document).ready(function() {                
+                $(".loader-img").hide();
+            });
+
+            $(".glass-button").on('click',function(){
+                console.log("******** Test start button pressed **********")
+                $(".loader-img").show();
+                console.log("******** Loading started **********")
+            })
+        </script>
+        
+    </body>
+
+</html>

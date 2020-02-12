@@ -1,0 +1,69 @@
+{% load static %}
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href="{% static 'css/pdf_style.css' %}" media="print"  rel="stylesheet"> <!-- media="print" -->
+    <title>Result Form</title>
+    <meta name="description" content="">
+  </head>
+  <body>
+    <div class="container" id="header">
+      <div id="servey-heading">
+        <div id="servey-set">
+          <h1>Survey Result</h1>
+        </div>
+        <div id="servey-time-date">
+          <label for=""><b>Date:-</b></label>
+          <span> {{date}}</span><br>
+           <label for=""><b>Time:-</b></label>
+          <span> {{time}}</span>
+        </div>
+      </div>
+      <!-- <div id="clr"></div> -->
+      <div id="servey-detail" >
+        <ul>
+          <li><b>Problem:</b> {{user.problem}}</li>
+          <li><b>Name:</b> {{user.firstname}}</li>
+          <li><b>Gender:</b>  {{user.gender}}</li>
+          <li><b>Age:</b>  {{user.age}}</li>
+          <li><b>Phone:</b>  {{user.phone}}</li>
+          <li><b>Email:</b> {{user.email}}</li>
+        </ul>
+      </div>
+
+      <div id="servey-table-align" >
+
+        <div id="border-table">
+          {% for ans in answers %}          
+          <div id="servey-table-pd">
+            <div id="counter">{{forloop.counter}}</div>
+            <table width="100%">
+              <tr>
+                <td>{% ifequal ans.answer "Yes" %}
+                    {{ ans.answer }}
+                  {% endifequal %}</td>
+                <td>{% ifequal ans.answer "Maybe" %}
+                    {{ ans.answer }}
+                  {% endifequal %}</td>
+                <td>{% ifequal ans.answer "No" %}
+                    {{ ans.answer }}
+                  {% endifequal %}</td> 
+              </tr>
+            </table>
+          </div>
+          {% if forloop.counter|divisibleby:25 %}
+              {% if forloop.counter < 200  %}                                     
+                 </div>
+                 <div id="border-table">
+              {% endif %}
+          {% endif %} 
+          {% endfor %}
+        </div> 
+      </div>
+
+    </div>
+  </body>
+</html>
+

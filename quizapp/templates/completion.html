@@ -1,0 +1,1509 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Free Personality Test - Oxford Capacity Analysis - Church of Scientology</title>
+
+
+	<link rel="stylesheet" type="text/css" href="{% static 'css/combined.css' %}">
+	<link rel="stylesheet" href="{% static 'css/fontello.css' %}"/>
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="{% static 'css/combined-styles.min.css' %}" />
+
+	<link rel="stylesheet" href="{% static 'css/default.css' %}">
+	<link rel="stylesheet" href="{% static 'css/default.date.css' %}">
+	<link rel="stylesheet" href="{% static 'css/default.time.css' %}">
+	<link rel="stylesheet" href="{% static 'css/fontello-embedded.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/photoswipe.css' %}">
+	<link rel="stylesheet" href="{% static 'css/default-skin.css' %}">
+	<link rel="stylesheet" href="{% static 'css/swiper.min.css' %}">
+
+
+	<style>
+	.well {
+		background: none;
+	}
+	.well h1:first-child,
+	.well h2:first-child,
+	.well h3:first-child,
+	.well h4:first-child,
+	.well h5:first-child,
+	.well h6:first-child {
+		margin-top: 0;
+	}
+
+	.schedule-buttons {
+		position: relative;
+		padding-bottom: 10px;
+		margin-bottom: 10px;
+	}
+
+	.schedule-buttons .btn {
+		position: relative;
+		display: inline-block;
+		vertical-align: middle;
+		width: 49%;
+		white-space: normal;
+	}
+
+	.play-button-overlay {
+		position: relative;
+	}
+	.play-button-overlay:after {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		max-width: 50px;
+		max-height: 50px;
+		margin: auto;
+		background-image: url(/theme/images/play-button.svg);
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: contain;
+	}
+
+	.video-thumb {
+		max-width: 320px;
+		margin-left: auto;
+		margin-right: auto;
+		cursor: pointer;
+	}
+	.video-thumb img {
+		display: block;
+		width: 100%;
+	}
+
+	#videobox {
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background-color: rgba(0,0,0,0.9);
+	}
+	#videobox .video-container {
+		position: absolute;
+		max-width: 860px;
+		height: 0;
+		left: 0;
+		right: 0;
+		top: 50%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	#videobox .video-sizer {
+		position: relative;
+		margin-top: -28.125%;
+		padding-bottom: 56.25%;
+	}
+	#videobox .video-js {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+	}
+	#videobox .close {
+		color: #fff;
+		background: #000;
+		border-radius: 50%;
+		width: 1.5em;
+		height: 1.5em;
+		opacity: 1;
+		text-shadow: none;
+		position: absolute;
+		top: -0.5em;
+		right: -0.5em;
+		box-shadow: 0 0 0 1px rgba(255,255,255,0.5);
+	}
+	#videobox .close:focus {
+		outline: none;
+	}
+
+	.date-time-changer {
+		outline: none !important;
+	}
+
+	p {
+		font-size: 14px;
+	    line-height: 1.6;
+	    margin-bottom: 15px;
+	}
+
+	p.li {
+		text-indent: -0.95em;
+	    display: block;
+	    padding-left: 1em;
+	}
+
+	h3.ul {
+		padding-left: 11px;
+	}
+
+	h4.black {
+		color: #333;
+	}
+
+	.conf-code {
+		font-weight: bold;
+	    font-size: 25px;
+	    font-family: Arial, Verdana;
+	    line-height: 1.0;
+	    letter-spacing: 1px;
+	}
+
+	.print-button {
+		margin-right: 5px;
+	}
+
+	.print-button b {
+		font-weight: normal;
+		margin-right: 5px;
+	}
+
+	.print-button .glyphicon {
+		color: #555;
+	}
+
+	.form-control[readonly] {
+		background: none;
+	}
+
+	.glyphicon-calendar {
+	    position: absolute;
+	    top: 29px;
+	    right: 8px;
+		color: #555;
+	}
+
+	.calendar {
+		position: relative;
+	}
+
+	#schedule_form label.required {
+		position: relative;
+	}
+
+	#schedule_form label.required:after {
+	    position: absolute;
+	    font-size: 85%;
+	    content: '*';
+	    padding: 0 0.25em;
+	    color: #a00;
+	}
+
+	@media print {
+
+		#footer,
+		.schedule-buttons,
+		.right-col,
+		.right-holder,
+		.logo-touch,
+		.print-button,
+		.logo {
+			display: none;
+		}
+
+		.left-col {
+			width: 100%;
+		}
+
+		.left-col > * {
+			float: left;
+			width: 48%;
+			margin-right: 2%;
+		}
+
+		.left-col .well {
+			border: none;
+		}
+
+		.col-md-4 {
+			margin-top: 20px;
+		}
+	}
+
+	#last_location {
+		width: 100%;
+		height: 0;
+		padding-bottom: 70%;
+		margin-bottom: 40px;
+		margin-top: 20px;
+	}
+
+	.adp-placemark td {
+		padding: 5px 10px 5px 5px;
+	}
+
+	.adp-directions {
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.text-center.time-output {
+		font-size: 22px;
+		color: #333;
+		font-family: Arial, Verdana;
+	}
+
+	@media (max-width: 768px) {
+		.conf-code-col {
+			text-align: center;
+			margin-top: 20px;
+		}
+	}
+
+	.date-time-changer-oca-eval {
+		padding-bottom: 0;
+		font-size: 12px;
+	}
+
+	@media (max-width: 680px) {
+		.completion-congrats {
+			padding-left: 18px;
+			padding-right: 18px;
+		}
+		.padd-both {
+			padding-left: 18px;
+			padding-right: 18px;
+		}
+		.date-time-changer.visible-xs-block {
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+			font-size: 14px;
+			margin-bottom: 1rem;
+		}
+		.schedule-buttons {
+			text-align: center;
+			margin-bottom: 30px;
+		}
+		.text-center.time-output {
+			margin-bottom: 0;
+		}
+		.well.visible-xs-block {
+			padding-left: 26px;
+			padding-right: 26px;
+		}
+		.driving-dir {
+			padding-left: 13px;
+		}
+		#getGoodDirections .col-md-4 {
+			margin-top: 10px;
+		}
+		.right-col {
+			padding-right: 20px;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.right-col .text-center.mt3.mb3 > img.center-block {
+			max-width: 100%;
+		}
+		.completion-congrats {
+			margin-top: 0;
+		}
+		#btn-schedule {
+			width: 100%;
+		}
+	}
+
+	.device-iphone .create-pass {
+		display: block !important;
+	}
+
+	.with-left-border {
+		border-top: 1px solid #ccc;
+		padding-top: 1rem;
+	}
+
+
+	.quotes-swiper p {
+		font-size: 15px;
+	}
+
+	.quotes-swiper p {
+		padding: 0 4rem;
+	}
+
+	.quote-icon {
+		margin-left: 1rem;
+		width: 20px;
+	}
+
+	:lang(no) .quote-icon {
+		font-size: 30px;
+		color: #006da6;
+		font-weight: bold;
+	}
+
+	.quote-icon img {
+		max-width: 100%;
+	}
+
+	@media (min-width: 768px) {
+		.quotes-swiper p {
+			padding: 0 8rem;
+		}
+
+		#redo_overlay .modal-body {
+			padding: 25px 32px 20px;
+		}
+
+		.quote-icon {
+			margin-left: 5rem;
+			width: 20px;
+		}
+
+		.date-time-changer-mobile {
+			display: none;
+		}
+
+		.with-left-border {
+			border-top: none;
+			padding-top: 0;
+			border-left: 1px solid #ccc;
+		}
+	}
+
+	#change_org {
+		margin: 0 auto;
+		width: 100%;
+		max-width: 1170px;
+	}
+
+	#change_org .modal-dialog {
+		width: 100%;
+		max-width: 1170px;
+		height: 90%;
+	}
+
+	#change_org .modal-content,
+	#change_org .modal-body {
+		height: 100%;
+	}
+
+	#change_org iframe {
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+
+	#change_org .modal-header {
+		padding: 0;
+		z-index: 2;
+		position: relative;
+	}
+
+	#change_org .modal-header .close {
+		opacity: 1;
+		margin-right: 1rem;
+		margin-top: 2.4rem;
+		z-index: 2;
+	}
+
+	.oca-chart-wrapper {
+		position: relative;
+		max-width: 667px;
+		margin: 0 auto 1rem;
+	}
+
+	.oca-chart-wrapper img {
+		max-width: 100% !important;
+		box-shadow: 0 2px 30px 0 rgba(15,44,79,0.42);
+		backface-visibility: hidden;
+	}
+
+	.oca_highchart {
+		position: absolute;
+	 
+		width: 70.66666666666666666667%;
+		height: 62.21015722203370659428%;
+		left: 9.100529100529100529101%;
+		top: 24.13000037703125589111%;
+	}
+
+	.open-oca {
+		cursor: pointer;
+	}
+
+	.expand-oca {
+		text-align: center;
+		color: #006da6;
+	}
+
+	.what-to-expect h3 {
+		margin-top: 0;
+	}
+
+	.hidden {
+		display: none;
+	}
+
+	.restart-test-btn {
+		text-align: center;
+		max-width: 200px;
+		margin: 0 auto 2rem;
+	}
+
+	.completion-congrats.large-title {
+		font-size: 29px;
+		font-weight: bold;
+		text-align: center;
+	}
+
+	 @media (orientation:portrait)  and (max-width: 767px){
+		.pswp .ps-scroll-wrapper {
+			overflow: scroll;
+			position: relative;
+			display: block !important;
+		}
+
+		.pswp .ps-scroll-filler {
+			width: 100vh;
+			position: relative;
+		}
+
+		.pswp .oca-chart-wrapper {
+			position: absolute;
+			left: 0;
+			top: 0;
+			transform-origin: 0% 0%;
+			transform: rotate(90deg) translateY(-100%);
+			width: 100vh;
+		}
+	 }
+
+	.oca-button-large {
+		padding: 7px 10px 10px;
+		display: inline-block;
+		border-radius: 5px;
+		color: #fff;
+		margin: 3px auto 3px;
+		text-align: center;
+		font-size: 14px;
+		text-decoration: none;
+		background: #e0561f;
+		background: -moz-linear-gradient(top, #e0561f 0%, #bd4110 100%);
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e0561f), color-stop(100%,#bd4110));
+		background: -webkit-linear-gradient(top, #e0561f 0%,#bd4110 100%);
+		background: -o-linear-gradient(top, #e0561f 0%,#bd4110 100%);
+		background: -ms-linear-gradient(top, #e0561f 0%,#bd4110 100%);
+		background: linear-gradient(to bottom, #e0561f 0%,#bd4110 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=&#39;#e0561f&#39;, endColorstr=&#39;#bd4110&#39;,GradientType=0 );
+		width: 100%;
+		max-width: 330px;
+	}
+
+
+	@media (max-width: 767px) {
+		.completion-congrats {
+			margin-bottom: 1.5rem;
+		}
+
+		.modal-lg {
+			width: 90% !important;
+			max-height: 100%;
+			overflow: scroll;
+		}
+
+		.schedule-fixed {
+			position: fixed;
+			text-align: center;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			background: rgba(28, 84, 138, 1);
+			padding: 1rem;
+			box-shadow: 0 -2px 10px #a4a4a4bd;
+			-webkit-transform: translateY(110%);
+			   -moz-transform: translateY(110%);
+			    -ms-transform: translateY(110%);
+			     -o-transform: translateY(110%);
+			        transform: translateY(110%);
+			-webkit-transition: all .25s ease-out;
+			   -moz-transition: all .25s ease-out;
+			    -ms-transition: all .25s ease-out;
+			     -o-transition: all .25s ease-out;
+			        transition: all .25s ease-out;
+		}
+
+		.shown.schedule-fixed {
+			display: block !important;
+			z-index: 10;
+			-webkit-transform: translateY(0%);
+			-moz-transform: translateY(0%);
+			-ms-transform: translateY(0%);
+			-o-transform: translateY(0%);
+			transform: translateY(0%);
+		}
+
+		.recommended-service-text {
+			margin-top: 1rem;
+			display: block;
+		}
+	}
+
+	.oca-ready .oca-top-loader-wrapper {
+		cursor: pointer;
+	}
+
+	#redo_overlay {
+		pointer-events: none;
+	}
+
+	#redo_overlay .modal-dialog {
+		pointer-events: all;
+	}
+
+	#redo_overlay .modal-dialog {
+		max-width: 700px;
+	}
+
+	#redo_overlay div {
+		font-size: 19px;
+	}
+
+	#schedule_overlay .close {
+		margin-top: -5px;
+		margin-right: -5px;
+	}
+
+	</style>
+
+	<!-- Facebook Pixel Code -->
+        <script>
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window,document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '267373927496346'); 
+            fbq('track', 'PageView');
+            fbq('track', 'Lead');
+        </script>
+        <noscript>
+             <img height="1" width="1" 
+            src="https://www.facebook.com/tr?id=267373927496346&ev=PageView
+            &noscript=1"/>
+        </noscript>
+     <!-- End Facebook Pixel Code -->
+
+</head>
+<body>
+
+<!-- <header> -->
+<header class="quiz-header" style="width: 100%;">
+    <div id="logo">
+        <img src="{% static 'images/logo_en.png' %}" />
+    </div>
+    <div id="logo_spacer"></div>
+    <h1>Free Personality Test<span id="personality_text"> | <span class="font-blue"></span>Oxford Capacity Analysis</span></h1>
+</header>
+<main  style="width: 100%;">		
+</main>
+<!-- </header> -->
+
+<div class="container">
+	<div class="row">
+		<div class="col-lg-10 col-lg-push-1">
+	        <h2 class="completion-congrats large-title">Congratulations {{user}}!</h2>
+	        <div class="row">
+	        	<div class="col-sm-9">
+					<h4 class="completion-congrats">Thank you for taking the Oxford Capacity Analysis Test</h4>	
+					<h4 class="completion-congrats">Result are being calculated.</h4>		        
+
+					<p class="hidden-xs">Your results are being processed and will be ready in a minute.</p>
+
+					<p class="mb0 hidden-xs">While you wait, schedule an in-person consultation of your test results, completely free of charge, at your nearest Church of Scientology.</p>
+				</div>
+
+				<div class="col-sm-3 oca-processing-wrapper">
+					<div style="position: relative;">
+						
+						<img style="max-width: 100%;" src="{% static 'img/oca-graph.jpg' %}" alt="">
+						
+						<div class="oca-top-loader-wrapper">
+							<span class="processing-results--text">
+								Processing your results<br/>
+							</span> 
+							<span class="dots-loader"></span>
+							<span class="results-ready hidden">
+								Your results are&nbsp;ready
+								<div class="icon-fontello-angle-left fontello-icon-down">
+									<i class="fa fa-chevron-down" aria-hidden="true"></i>
+								</div>
+							</span>
+						</div>
+					</div>
+					<p class="processing-results--label">
+					</p>
+				</div>
+			</div>
+
+			<h3 class="processing-results--ready">Schedule your in-person evaluation</h3>
+			<p>We provide a complimentary consultation to give you a detailed evaluation of your personality analysis.</p>
+
+			<div class="row well">
+				<div class="col-xs-12">				
+					<form id="schedule_form" class="schedule_form row" action="oca-service.action">
+						<div class="col-sm-6">
+							<div class="d-flex align-center">
+								<p class="time-title mr2 mb1"><strong>Next appointment time:</strong></p>
+								<p class="text-center time-output mb1"><strong><span class="date-part"> {{current_date}} </span> <span class="time-part"></span></strong></p>
+							</div>
+
+							<div class="row schedule-details" style="display: none;">
+
+								<div class="col-md-6">
+									<div class="form-group calendar">
+										<label for="appt_date" class="required">Reservation Date:</label>
+										<input type="date" class="form-control" id="appt_date" name="appt_date" value="2019-06-22" required>
+										<span class="glyphicon glyphicon-calendar"></span>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label for="appt_time" class="required">Time:</label>
+										<select class="form-control" name="appt_time" id="appt_time">
+											<option value="5am-6am">5am-6am</option>
+										</select>
+									</div>
+								</div>
+
+								<div class="col-md-6">
+									<div class="form-group">
+										<label for="phone">Phone number</label>
+										<input type="tel" class="form-control" id="phone" name="phone">
+									</div>
+								</div>
+
+							</div>
+
+							<div class="row schedule-details" style="display: none;">
+								<div class="col-md-12">
+									<div class="form-group">
+										<label for="message">Message:</label>
+										<textarea rows="3" class="form-control" id="message" name="message"></textarea>
+									</div>
+								</div>
+							</div>
+
+							<button class="btn btn-link btn-lg date-time-changer date-time-changer-mobile visible-xs-block pt0 pb0">
+								Choose a different time &raquo;
+							</button>
+
+						</div>
+
+						<div class="schedule-buttons col-sm-6">
+							<button class="btn btn-primary btn-lg" id="btn-schedule">							
+									Yes, schedule me								
+							</button>
+
+							<button class="btn btn-link btn-lg date-time-changer hidden-xs pt0 date-time-changer-oca-eval">								
+									No, choose a different time								
+							</button>
+
+						</div>
+
+					</form>
+				</div>
+
+				<div class="col-xs-12 col-sm-6 mt2 left-col">
+		
+					<div class="d-lg-flex">		
+						<div>
+							<strong>Religious foundation of Scientology of Tampa</strong>
+							<p>
+								<br>
+								Call: (813) 872-0722<br>
+                                Email: tampa@scientology.net<br>
+                                1300 East 8th Avenue<br>
+                                Tampa, FL 33605<br>
+								<br>
+							</p>
+
+						</div>
+					</div>
+					<a class="change-org-modal" href="#">
+						Not near <i>Religious foundation of Scientology of Tampa</i>?
+					</a>
+				</div>
+			
+				<div class="col-xs-12 col-sm-6 mt2 right-col mt2 right-col">
+
+					<div class="row">					
+						<div class="swiper-container quotes-swiper">					    
+					    	<div class="swiper-wrapper">					        
+						       	<div class="swiper-slide">
+						        	<div class="quote-icon">						        		
+						        		<img src="{% static 'img/quotes-left.svg' %}" alt="">						        		
+						        	</div>
+						        	<p><strong>My evaluation was completely <nobr>spot-on</nobr>.</strong> I felt like I was talking to someone who has known me my whole life&mdash;when I had only known them for a few minutes. This was very helpful. I know <em>exactly</em> what I need to work on in myself to live a better life now.</p>
+									<p>-A.R.</p>
+						        </div>
+						        <div class="swiper-slide">
+						        	<div class="quote-icon">
+						        		
+						        		<img src="{% static 'img/quotes-left.svg' %}" alt="">
+						        		
+						        	</div>
+						        	<p><strong>My results made so much sense.</strong> I&rsquo;ve done a lot of tests like this but <strong>none have been as complete or as accurate as this one was.</strong> The graph showed me how I am&mdash;and the <nobr>in-person</nobr> evaluation described me&nbsp;<em>perfectly</em>.</p>
+									<p>-N.L.</p>
+						        </div>
+						        <div class="swiper-slide">
+						        	<div class="quote-icon">
+						        		
+						        		<img src="{% static 'img/quotes-left.svg' %}" alt="">
+						        		
+						        	</div>
+						        	<p><strong>I was not expecting this to be so accurate!</strong> When I came in here I thought this was going to be like other tests I&rsquo;ve done online, but I was wrong! I can&rsquo;t believe it&mdash;this is really me!</p>
+									<p>-J.R.</p>
+						        </div>
+					   		</div>
+					    
+					    	<div class="swiper-pagination"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="clearfix"></div>
+
+		<div class="bs-extender oca-results-wrapper">
+			<div class="disabled-background"></div>
+			<div class="container">
+				<div class="row">							
+					<div class="col-lg-10 col-lg-offset-1">
+						<div class="row">								
+							<div class="col-sm-9 col-sm-offset-2">
+								<h3 class="processing-results--ready">Here are the results of your personality analysis:</h3>
+								<div class="col-sm-4">
+									<p>Each point on the analysis graph represents a vital personality trait&mdash;ten <nobr>in total:</nobr></p>
+								</div>
+
+								<div class="col-sm-4">
+									<ul class="traits-list">
+										<li>Composure</li>
+										<li>Certainty</li>
+										<li>Happiness</li>
+										<li>Stability</li>
+										<li>Activity</li>
+									</ul>
+								</div>
+
+								<div class="col-sm-4">
+									<ul class="p0 traits-list">
+										<li>Appreciation</li>
+										<li>Communication Level</li>
+										<li>Responsibility</li>
+										<li>Correct Estimation</li>
+										<li>Aggressiveness</li>
+									</ul>
+								</div>
+							</div>
+					
+							<div class="col-sm-9 col-sm-offset-2">
+								<p class="mt3">
+									<a class="schedule-link" href="#btn-schedule">
+										Find out exactly what your personality strengths and weaknesses are. Which points are highest, and which points are lowest? <span class="link-hightlight">Schedule for your free <nobr>in-person</nobr> evaluation and find out.</span>
+									</a>
+								</p>
+							</div>
+				
+							<div class="clearfix"></div>
+							<div class="bs-extender oca-graph-wrapper">
+								<div class="oca-graph-bg"></div>
+								<div class="oca-chart-wrapper open-oca">
+									<div class="oca_highchart-wrapper">
+										<div id="oca_highchart" class="oca_highchart"></div>
+									</div>
+									<img src="{% static 'img/oca-graph.jpg' %}" alt="OCA Graph">
+									<div class="side-oca-ovals hidden-xs">
+										<div class="satisfactory-oval traits-oval large-oca-oval"></div>
+										<div class="acceptable-oval traits-oval large-oca-oval"></div>
+										<div class="unacceptable-oval traits-oval large-oca-oval"></div>
+									</div>
+								</div>
+						
+								<div class="container">
+									<div class="each-trait-text">
+										Each trait ranges in value from -100 to +100. The graph consists of three bands:
+									</div>
+
+									<div class="row traits-row hidden">
+										<div class="col-sm-4 traits-group satisfactory-traits d-lg-flex">
+											<div class="satisfactory-oval traits-oval"></div>
+											<p>
+												Traits in the top white area are <i>satisfactory</i>, but can be raised higher.
+												
+													<span class="traits-counter single hidden">You have <traits-number></traits-number> trait in this band.</span>
+													<span class="traits-counter plural hidden">You have <traits-number></traits-number> traits in this band.</span>
+												
+											</p>
+										</div>
+
+										<div class="col-sm-4 traits-group acceptable-traits d-lg-flex">
+											<div class="acceptable-oval traits-oval"></div>
+											<p>
+												Traits in the shaded areas are <i>acceptable under perfect conditions.</i> These middle points will get you by, so long as there is no crisis or difficulty in your life.
+												
+													<span class="traits-counter single hidden">You have <traits-number></traits-number> trait in this band.</span>
+													<span class="traits-counter plural hidden">You have <traits-number></traits-number> traits in this band.</span>
+												
+											</p>
+										</div>
+
+										<div class="col-sm-4 traits-group unacceptable-traits d-lg-flex">
+											<div class="unacceptable-oval traits-oval"></div>
+											<p>Traits in the bottom white area show that you are <i>very much in need of help.</i>
+												
+													<span class="traits-counter single hidden">You have <traits-number></traits-number> trait in this band.</span>
+													<span class="traits-counter plural hidden">You have <traits-number></traits-number> traits in this band.</span>
+												
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+				
+
+						<div class="clearfix"></div>
+
+						<div class="col-sm-8 col-sm-offset-2">
+							
+							<p class="mt3">
+								<a class="schedule-link" href="#btn-schedule">
+									<strong>Find out exactly what your personality strengths and weaknesses are. Which points are highest, and which points are lowest? <span class="link-hightlight">Schedule for your free <nobr>in-person</nobr> evaluation and find out.</span></strong>
+								</a>
+							</p>
+							<p>The Oxford Capacity Analysis is a factual, scientific analysis taken from your answers&mdash;it is your opinion of you.</p>
+							<p>It is the low points that are the cause of your troubles and these can be changed with Scientology. Also, knowledge is necessary to make full use of the best points of your personality and that too can be gained through Scientology.</p>
+							
+						</div>
+					
+						<div class="col-sm-8 col-sm-offset-2 recommended-service hidden">
+							<h3 class="processing-results--ready">Recommended Action</h3>
+
+							<p>Based on <em>your</em> personality analysis, we recommend you come in to the <strong>Religious foundation of Scientology of Tampa</strong> and ask about the <strong><recommended-service></recommended-service></strong>.</p>
+
+							<p>Come in to the Religious foundation of Scientology of Tampa and ask about this service.</p>
+
+						</div>
+
+						<div class="clearfix"></div>
+					</div>
+
+					<div class="clearfix"></div>
+					<div class="col-lg-10 col-lg-offset-1 recommended-service hidden">
+						<div class="row well">
+							<div class="col-sm-7 mt2 left-col">										
+								<div class="d-lg-flex">											
+									<div class="mr2	text-center">
+										<img class="mt1 service-img" src="https://files.ondemandhosting.info/imagecache/cropfit@w=200@qa=85/data/www.scientology.org/themes/www_scientology_org2/images/beginning-services/squares/service-square-success-through-communication_en.jpg?_=m8Tnrvyf" alt="Religious foundation of Scientology of Tampa">
+									</div>
+
+									<div>
+										<p><strong><recommended-service class="recommended-service-text"></recommended-service></strong></p>
+										<p class="m0">Delivered at:</p>
+										<strong>Religious foundation of Scientology of Tampa</strong>
+										<p>
+											<br>
+											Call: (813) 872-0722<br>
+			                                Email: tampa@scientology.net<br>
+			                                1300 East 8th Avenue<br>
+			                                Tampa, FL 33605<br>
+											<br>
+										</p>
+
+										<div class="org-hours-output"></div>
+
+									</div>
+								</div>
+						
+								<div class="mt1">
+															
+									<a class="change-org-modal" href="#">
+										Not near <i>Religious foundation of Scientology of Tampa</i>?
+									</a>
+
+								</div>
+							</div>
+
+							<div class="col-sm-5 mt2 pr0">
+								<form id="schedule_form" class="service-schedule_form" action="oca-service.action">
+
+									<input name="service" type="hidden" value="pe-course">
+
+									<div class="">
+
+										<p>To best service you, please let us know when you plan to come in.</p>
+
+										<div class="d-flex align-center">
+											<p class="time-title mr1"><strong>Next appointment time:</strong></p>
+											<p class="text-center time-output"><strong><span class="date-part">June 22, 2019</span> <span class="time-part"></span></strong></p>
+										</div>
+
+										<div class="row schedule-details" style="display: none;">
+
+											<div class="col-md-6">
+												<div class="form-group calendar">
+													<label for="appt_date" class="required">Reservation Date:</label>
+													<input type="date" class="form-control" id="appt_date" name="appt_date" value="2019-06-22" required>
+													<span class="glyphicon glyphicon-calendar"></span>
+												</div>
+											</div>
+											<div class="col-md-6">
+												<div class="form-group">
+													<label for="appt_time" class="required">Time:</label>
+													<select class="form-control" name="appt_time" id="appt_time">
+														<option value="5am-6am">5am-6am</option>
+													</select>
+												</div>
+											</div>
+
+											<div class="col-md-6">
+												<div class="form-group">
+													<label for="phone">Phone number</label>
+													<input type="tel" class="form-control" id="phone" name="phone">
+												</div>
+											</div>
+										</div>
+
+										<div class="row schedule-details" style="display: none;">
+											<div class="col-md-12">
+												<div class="form-group">
+													<label for="message">Message:</label>
+													<textarea rows="3" class="form-control" id="message" name="message"></textarea>
+												</div>
+											</div>
+										</div>
+
+										<button class="btn btn-link btn-lg date-time-changer date-time-changer-mobile visible-xs-block pt0 pb0">
+											Choose a different time &raquo;
+										</button>
+
+									</div>
+
+									<div class="schedule-buttons">
+										<button class="btn btn-primary btn-lg" id="btn-schedule" style="font-size: 1.7rem;">
+											
+												Yes, schedule me
+											
+										</button>
+
+										<button class="btn btn-link btn-lg date-time-changer hidden-xs pt0">
+											
+												No, choose a different time
+											
+										</button>
+
+									</div>
+
+								</form>
+							</div>
+						</div>
+				
+						<div class="row hidden pow-book">
+					
+							<h3 class="processing-results--ready mb2 col-xs-12">Recommended Book</h3>
+
+							<div class="col-sm-3 col-sm-offset-1">
+								<p style="font-size: 12px;">Based on <em>your</em> personality analysis, we also recommend the book, <em>The Problems of Work</em>.</p>
+							</div>
+
+							<div class="col-sm-8">
+								<div class="row well">
+									<div class="col-sm-3 text-center">
+										<a class="no-decoration" href="https://www.scientology.org/store/item/the-problems-of-work-paperback.html?utm_source=oca-completion-page" target="_blank">
+											
+											<img src="https://files.ondemandhosting.info/imagecache/cropfit@w=133@as=1@fm=jpeg@bg=ffffff/data/shared/themes/gold_master/product_images/en/the-problems-of-work-paperback_en.jpg" style="max-width: 100%;" alt="">
+											
+										</a>
+									</div>
+									<div class="col-sm-9">
+										<h4 class="mb0">
+											<a class="no-decoration" href="https://www.scientology.org/store/item/the-problems-of-work-paperback.html?utm_source=oca-completion-page" target="_blank">
+												The Problems of Work
+											</a>
+										</h4>
+										<h6 class="book-by-lrh">by L. Ron Hubbard</h6>
+										<p><em>The Problems of Work</em> comprises Scientology applied to that seven-tenths of existence called <em>work</em>. Discover the answers to exhaustion and the secret of efficiency. Here is the analysis of life itself as a game, composed of exact rules. Know them and&nbsp;succeed!</p>
+
+										<a class="btn btn-primary btn-lg hidden-xs" target="_blank" href="https://www.scientology.org/store/item/the-problems-of-work-paperback.html?utm_source=oca-completion-page">Order Your Copy</a>
+
+										<a class="btn btn-primary btn-lg visible-xs-block" target="_blank" href="https://www.scientology.org/store/item/the-problems-of-work-paperback.html?utm_source=oca-completion-page">Order Your Copy</a>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="row hidden dianetics-book">
+					
+							<h3 class="processing-results--ready mb2 col-xs-12">Recommended Book</h3>
+
+							<div class="col-sm-3 col-sm-offset-1">
+								<p style="font-size: 12px;">Based on <em>your</em> personality analysis, we also recommend the book, <em>Dianetics: The Modern Science of Mental Health</em></p>
+							</div>
+
+							<div class="col-sm-8">
+								<div class="row well">
+									<div class="col-sm-3 text-center">
+										<a class="no-decoration" href="https://www.scientology.org/store/item/dianetics-the-modern-science-of-mental-health-paperback.html?utm_source=oca-completion-page" target="_blank">
+											
+											<img src="https://files.ondemandhosting.info/imagecache/cropfit@w=133@as=1@fm=jpeg@bg=ffffff//data/shared/themes/gold_master/product_images/en/dianetics-the-modern-science-of-mental-health-paperback_en.jpg" style="max-width: 100%;" alt="">
+											
+										</a>
+									</div>
+									<div class="col-sm-9">
+										<h4 class="mb0">
+											<a class="no-decoration" href="https://www.scientology.org/store/item/dianetics-the-modern-science-of-mental-health-paperback.html?utm_source=oca-completion-page" target="_blank">
+												Dianetics: The Modern Science of Mental Health
+											</a>
+										</h4>
+										<h6 class="book-by-lrh">by L. Ron Hubbard</h6>
+										<p>Here is L.&nbsp;Ron&nbsp;Hubbard&rsquo;s landmark book presenting his discovery of the <em>reactive mind</em> that underlies and enslaves Man. It&rsquo;s the source of nightmares, unreasonable fears, upsets and insecurity. And here is the way to get rid of it and achieve the long sought goal of Clear.</p>
+										
+
+										<a class="btn btn-primary btn-lg hidden-xs" target="_blank" href="https://www.scientology.org/store/item/dianetics-the-modern-science-of-mental-health-paperback.html?utm_source=oca-completion-page">Order Your Copy</a>
+
+										<a class="btn btn-primary btn-lg visible-xs-block" target="_blank" href="https://www.scientology.org/store/item/dianetics-the-modern-science-of-mental-health-paperback.html?utm_source=oca-completion-page">Order Your Copy</a>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="clearfix"></div>
+					
+						<div class="col-sm-8 col-sm-offset-2 mt4">
+							<h3 class="processing-results--ready">
+								Complimentary Consultation
+							</h3>
+							<p>We provide a complimentary consultation to give you a detailed evaluation of your personality analysis.</p>
+							<p>While the analysis graph shows distinct personality traits, it is the interrelationship of these traits that provide the greater picture of your personality.</p>
+							<p>We therefore provide a complimentary consultation to give you a detailed evaluation of your personality analysis. One of our trained consultants delivers this to you.</p>
+						</div>
+
+						<div class="col-sm-6 mt2 left-col what-to-expect">
+							<h3 class="ul">What to expect when you come in for your results:</h3>
+							<p class="li">&bull; Professional test evaluations of this type <strong>can cost upwards of $500</strong>; we are offering this <strong>as a free service</strong>.</p>
+							<p class="li">&bull; The Oxford Capacity Analysis and your test evaluation is completely different than you will find elsewhere and is <strong>not merely a computerized online test result</strong>. We want to make sure you understand your results and <strong>that they benefit you</strong>.</p>
+
+							<p class="li">
+						 	&bull; Your test results are delivered by a <strong>professional consultant</strong> at the Religious foundation of Scientology of Tampa.
+						 	</p>
+							<p class="li">&bull; There is <strong>absolutely no obligation</strong>, test evaluations are given in-person completely <strong>free of charge</strong>.</p>
+							<p class="li">&bull; We provide a complimentary, one-on-one consulation with a <strong> specialized consultant giving you a detailed analysis of your results</strong>. You will gain a better understanding of your personality <strong>strengths and perceived weaknesses</strong>, and establish the recommended path to your fast and lasting success.</p>
+							<p class="li">&bull; Test evaluation times can vary widely, but <strong>for many people it takes about 15 minutes</strong>.</p>
+						</div>
+					
+						<div class="col-sm-6 well mt2">
+							<h3>Schedule your in-person evaluation</h3>
+
+							<form id="schedule_form" class="schedule_form" action="oca-service.action">
+
+								<div class="">						
+
+										<div class="d-md-flex align-center">
+											<p class="time-title mr2 mb1"><strong>Next appointment time:</strong></p>
+											<p class="text-center time-output mb1"><strong><span class="date-part">June 22, 2019</span> <span class="time-part"></span></strong></p>
+										</div>
+
+									<div class="row schedule-details" style="display: none;">
+
+										<div class="col-md-6">
+											<div class="form-group calendar">
+												<label for="appt_date" class="required">Reservation Date:</label>
+												<input type="date" class="form-control" id="appt_date" name="appt_date" value="2019-06-22" required>
+												<span class="glyphicon glyphicon-calendar"></span>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label for="appt_time" class="required">Time:</label>
+												<select class="form-control" name="appt_time" id="appt_time">
+													<option value="5am-6am">5am-6am</option>
+												</select>
+											</div>
+										</div>
+									</div>
+
+									<div class="row schedule-details" style="display: none;">
+										<div class="col-md-12">
+											<div class="form-group">
+												<label for="message">Message:</label>
+												<textarea rows="3" class="form-control" id="message" name="message"></textarea>
+											</div>
+										</div>
+									</div>
+
+									<button class="btn btn-link btn-lg date-time-changer date-time-changer-mobile visible-xs-block pt0 pb0"> Choose a different time &raquo;</button>
+
+								</div>
+
+								<div class="schedule-buttons">
+									<button class="btn btn-primary btn-lg" id="btn-schedule">											
+											Yes, schedule me												
+									</button>
+
+									<button class="btn btn-link btn-lg date-time-changer hidden-xs pt0">							
+											No, choose a different time											
+									</button>
+
+								</div>
+							</form>
+						</div>
+
+						<div class="col-sm-12">
+
+							<h3 class="driving-dir">Driving Directions:</h3>
+
+							<p class="hidden-xs">Come to the Church of Scientology, shown below, to receive your personality analysis completely free of charge. There is no&nbsp;obligation.</p>
+							<p class="hidden-xs">Once you know your strengths and weaknesses, you can make the best use of your personality to help achieve your goals in life!</p>
+
+							<div class="row">
+
+								<div class="col-sm-1">&nbsp;</div>
+
+								<div class="col-sm-10">
+
+									<div id="last_location"></div>
+
+									<div id="last-direction no-print">
+
+										<div id="getGoodDirections" class="no-print ">
+
+											Generate directions by providing a starting point below:
+
+											<div class="row mt1">
+												<div class="col-md-8">
+										    		<input type="text" class="form-control" id="sourceAddress" />
+										    	</div>
+										    	<div class="col-md-4">
+										    		<button type="button" class="btn btn-default" id="getDirectionsButton">Get Directions <span class="glyphicon glyphicon-map-marker"></span></button>
+										    	</div>
+										    </div>
+										</div>
+
+										<hr>
+
+										<div class="directions-hidden">
+											<div class="directions-wrapper">
+												<div id="view-on-and-print" class="pull-right">
+													<a href="#" id="view_on_gmaps" target="_blank" onclick="fireGoogleTracking('06-google-maps-link-clicked', 'userAgent');">View on Google Maps</a>
+												</div>
+												<div id="directions-text"><h4>Directions</h4></div>
+											</div>
+											<div id="map_canvas" style="display: none;"></div>
+											<div class="clearfix"></div>
+											<div id="route"></div>
+										</div>
+
+									</div>
+
+								</div>
+
+								<div class="col-sm-1">&nbsp;</div>
+
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="schedule-fixed visible-xs">
+	<div class="oca-button-large">
+		Schedule your in-person evaluation
+	</div>
+</div>
+
+<div id="change_org" class="modal bs-modal-center modal-lg" tabindex="-1" role="dialog">
+  	<div class="modal-dialog">
+	  	<div class="modal-header">
+    		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  		</div>
+
+    	<div class="modal-content pl1 pr1 pt1">
+
+      		<div class="modal-body pb3">
+
+		        <iframe src="" frameborder="0"></iframe>
+
+      		</div>
+
+    	</div>
+  	</div>
+</div>
+
+<div id="redo_overlay" class="modal bs-modal-center" tabindex="-1" role="dialog">
+  	<div class="modal-dialog modal-lg">
+    	<div class="modal-content">
+      		<div class="modal-body">
+				<div class="oca-intro-text">
+					<p>We&rsquo;re sorry, but our system was unable to process and analyze the results of your answers. It appears you either did not understand the questions you were answering or may have answered the questions randomly.</p>
+					<p>We recommend you go back to the beginning and take your personality test again.</p>
+					<div class="restart-test-btn">
+						<a href="/questions.html?restart=1" class="btn btn-primary btn-lg mt1 mb1 btn-block start-oca-for-real">START TEST</a>
+					</div>
+					<p>If you would like further assistance, schedule an in-person appointment to take your personality test at the <strong>Religious foundation of Scientology of Tampa</strong>.</p>
+
+					<div class="well">				
+						<form id="schedule_form" class="schedule_form" action="oca-service.action">
+							<div class="">	
+								<div class="d-md-flex align-center">
+									<p class="time-title mr2 mb1"><strong>Next appointment time:</strong></p>
+									<p class="text-center time-output mb1"><strong><span class="date-part">June 22, 2019</span> <span class="time-part"></span></strong></p>
+								</div>
+
+								<div class="row schedule-details" style="display: none;">
+									<div class="col-md-6">
+										<div class="form-group calendar">
+											<label for="appt_date" class="required">Reservation Date:</label>
+											<input type="date" class="form-control" id="appt_date" name="appt_date" value="2019-06-22" required>
+											<span class="glyphicon glyphicon-calendar"></span>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<label for="appt_time" class="required">Time:</label>
+											<select class="form-control" name="appt_time" id="appt_time">
+												<option value="5am-6am">5am-6am</option>
+											</select>
+										</div>
+									</div>
+								</div>
+
+								<div class="row schedule-details" style="display: none;">
+									<div class="col-md-12">
+										<div class="form-group">
+											<label for="message">Message:</label>
+											<textarea rows="3" class="form-control" id="message" name="message"></textarea>
+										</div>
+									</div>
+								</div>
+
+								<button class="btn btn-link btn-lg date-time-changer date-time-changer-mobile visible-xs-block pt0 pb0">
+									Choose a different time &raquo;
+								</button>
+
+							</div>
+
+							<div class="schedule-buttons">
+								<button class="btn btn-primary btn-lg" id="btn-schedule">								
+										Yes, schedule me									
+								</button>
+
+								<button class="btn btn-link btn-lg date-time-changer hidden-xs pt0">									
+										No, choose a different time									
+								</button>
+							</div>
+						</form>
+
+					</div>
+				</div>
+      		</div>
+      	</div>
+	</div>
+</div>
+
+<div id="schedule_overlay" class="modal bs-modal-center" tabindex="-1" role="dialog">
+  	<div class="modal-dialog modal-lg">
+    	<div class="modal-content">
+      		<div class="modal-body">
+		  		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      			<h3 class="mt0">Schedule your in-person evaluation</h3>
+		
+				<div class="d-lg-flex">					
+					<div>
+						<strong>Religious foundation of Scientology of Tampa</strong>
+						<p>
+							<br>
+								Call: (813) 872-0722<br>
+                                Email: tampa@scientology.net<br>
+                                1300 East 8th Avenue<br>
+                                Tampa, FL 33605<br>
+							<br>
+						</p>					
+					</div>
+				</div>		
+
+				<a class="change-org-modal" href="#">
+					Not near <i>Religious foundation of Scientology of Tampa</i>?
+				</a>
+
+				<div class="oca-intro-text">
+					<div class="well">	
+						<form id="schedule_form" class="schedule_form" action="oca-service.action">
+							<div class="">
+								<div class="d-md-flex align-center">
+									<p class="time-title mr2 mb1"><strong>Next appointment time:</strong></p>
+									<p class="text-center time-output mb1"><strong><span class="date-part">June 22, 2019</span> <span class="time-part"></span></strong></p>
+								</div>
+
+								<div class="row schedule-details" style="display: none;">
+									<div class="col-md-6">
+										<div class="form-group calendar">
+											<label for="appt_date" class="required">Reservation Date:</label>
+											<input type="date" class="form-control" id="appt_date" name="appt_date" value="2019-06-22" required>
+											<span class="glyphicon glyphicon-calendar"></span>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<label for="appt_time" class="required">Time:</label>
+											<select class="form-control" name="appt_time" id="appt_time">
+												<option value="5am-6am">5am-6am</option>
+											</select>
+										</div>
+									</div>
+								</div>
+
+								<div class="row schedule-details" style="display: none;">
+									<div class="col-md-12">
+										<div class="form-group">
+											<label for="message">Message:</label>
+											<textarea rows="3" class="form-control" id="message" name="message"></textarea>
+										</div>
+									</div>
+								</div>
+
+								<button class="btn btn-link btn-lg date-time-changer date-time-changer-mobile visible-xs-block pt0 pb0">
+									Choose a different time &raquo;
+								</button>
+
+							</div>
+
+							<div class="schedule-buttons">
+								<button class="btn btn-primary btn-lg" id="btn-schedule">									
+										Yes, schedule me									
+								</button>
+
+								<button class="btn btn-link btn-lg date-time-changer hidden-xs pt0">									
+										No, choose a different time									
+								</button>
+							</div>
+						</form>
+					</div>
+				</div>
+      		</div>
+      	</div>
+	</div>
+</div>
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>   
+    <div class="pswp__scroll-wrap">        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<div id="footer">
+	<div class="footer-legal">
+		© 2019 Church of Scientology. All Rights Reserved.
+		<div class="pull-right flip"><a href="/privacy-notice.html">Privacy Notice</a> - <a href="/terms.html">Terms of Use</a> - <a href="/legal-notice.html">Legal Notice</a>
+	
+		 - <a href="/cookie-policy.html">
+			Cookie Policy
+			</a>
+	
+		 </div>
+	</div>
+</div>
+
+
+<script   src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+<script src="{% static 'js/combined.js' %}"></script>
+<script type="text/javascript" src="https://tr.standardadmin.org/tr.action" async></script>
+<script type="text/javascript" src="{% static 'js/conversion.js' %}"></script>		
+<script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
+<script src="{% static 'js/oct.js' %}" type="text/javascript"></script>
+
+<script src="{% static 'js/picker.js' %}"></script>
+<script src="{% static 'js/picker.date.js' %}"></script>
+<script src="{% static 'js/picker.time.js' %}"></script>
+
+<script src="{% static 'js/photoswipe.min.js' %}"></script>
+<script src="{% static 'js/photoswipe-ui-default.min.js' %}"></script>
+<script src="{% static 'js/highcharts.js' %}"></script>
+<script src="{% static 'js/swiper.min.js' %}"></script>
+
+<script src="{% static 'js/hammer.min.js' %}"></script>
+<script src="{% static 'js/preload.js' %}"></script>
+<script src="{% static 'js/notify.min.js' %}"></script>
+<script src="{% static 'js/paminta.js' %}"></script>
+
+<script>	
+
+	$(document).ready(function() {
+		console.log("************* Generate PDF ************** {{status}} ")
+		$.ajax({            
+			  type: "GET",
+			  url: "/result/{{status}}" ,
+			  dataType: 'json',
+			  traditional: true,
+			  success: function(data) {		   
+			    	console.log("********** email has been sent *********")	
+			}
+		});
+		console.log("************* Generated PDF ************** ")
+	});
+	
+	</script>
+</body>
+</html>

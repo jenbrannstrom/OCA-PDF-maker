@@ -1,0 +1,1085 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Free Personality Test - Oxford Capacity Analysis - Church of Scientology</title>
+
+	<link rel="stylesheet" type="text/css" href="{% static 'css/combined.css' %}">
+	<link rel="stylesheet" href="{% static 'css/fontello.css' %}"/>
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="{% static 'css/combined-styles.min.css' %}" />
+
+	<link rel="stylesheet" href="{% static 'css/default.css' %}">
+	<link rel="stylesheet" href="{% static 'css/default.date.css' %}">
+	<link rel="stylesheet" href="{% static 'css/default.time.css' %}">
+	<link rel="stylesheet" href="{% static 'css/fontello-embedded.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/photoswipe.css' %}">
+	<link rel="stylesheet" href="{% static 'css/default-skin.css' %}">
+	<link rel="stylesheet" href="{% static 'css/swiper.min.css' %}">
+
+
+	<!-- Facebook Pixel Code -->
+        <script>
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window,document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '267373927496346'); 
+            fbq('track', 'PageView');
+            fbq('track', 'Lead');
+        </script>
+        <noscript>
+             <img height="1" width="1" 
+            src="https://www.facebook.com/tr?id=267373927496346&ev=PageView
+            &noscript=1"/>
+        </noscript>
+     <!-- End Facebook Pixel Code -->
+
+
+	<style>
+		
+	body {
+		overflow-x: hidden;
+	}
+	.footer-legal {
+		margin-top: 0;
+	}
+	 
+	body {
+		min-height: 100vh;
+		display: flex;
+		flex-direction: column;
+	}
+	/*#header {
+		flex: 0 0 auto;
+	}*/
+	body > .container {
+		flex: 1 0 auto;
+		display: flex;
+		flex-direction: column;
+	}
+	.questions-container {
+		max-height: 700px;
+		flex: 1 0 auto;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		width: 84%;
+	}
+	#footer {
+		flex: 0 0 auto;
+	}
+	 
+
+	.questions {
+		position: relative;
+		width: 100%;
+		max-width: 700px;
+		margin-left: auto;
+		margin-right: auto;
+		white-space: nowrap;
+		-webkit-transition: transform 0.3s;
+		-moz-transition: transform 0.3s;
+		-o-transition: transform 0.3s;
+		transition: transform 0.3s;
+	}
+	.questions-slider {
+    display: inline-block;
+    width: 95%;
+    padding-left: 100px;
+    padding-right: 100px;
+    white-space: normal;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 29px;
+    line-height: 1.103448275862069;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+	/*.questions-slider:not(.active) {
+		opacity: 0.1;
+	}*/
+	.questions .q-n {
+		font-size: 36px;
+		color: #9bc8d9;
+		font-weight: bold;
+	}
+
+	.questions-finished {
+		display: inline-block;
+		width: 100%;
+		white-space: normal;
+		vertical-align: middle;
+		visibility: hidden;
+		font-size: 16px;
+	}
+	.questions-spinner {
+		position: relative;
+		height: 50px;
+	}
+
+	.buttons {
+		background: #369;
+		background: radial-gradient(ellipse 80% 100% at 50% -50%, #4876a3 98%, #369 100%);
+		box-shadow: 0 -5px 10px rgba(0,0,0,0.2) inset;
+		border-radius: 6px;
+	}
+	.buttons .btn {
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		position: relative;
+		background: transparent;
+		color: #fff;
+		min-width: 8em;
+		line-height: 2;
+		border-radius: 6px;
+	}
+	.buttons .btn:before {
+		content: '';
+		position: absolute;
+		top: 5px;
+		left: 0;
+		bottom: 5px;
+		width: 1px;
+		background: rgba(255,255,255,0.6);
+	}
+	.buttons .btn:first-child:before {
+		content: none;
+	}
+	.buttons .btn:focus {
+		outline: none;
+	}
+	.buttons .btn:hover,
+	.buttons .btn:active,
+	.buttons .btn.active {
+		background: rgba(255,255,255,0.1);
+	}
+	.buttons .btn:hover span,
+	.buttons .btn:active span,
+	.buttons .btn.active span {
+		border-bottom: 2px solid #f39a00;
+	}
+	.buttons .btn:active,
+	.buttons .btn.active {
+		box-shadow: 0 -5px 10px rgba(0,0,0,0.2) inset,
+			3px 3px 5px rgba(0,0,0,0.5) inset;
+	}
+
+	#test-progress p {
+		font-size: 10px;
+		letter-spacing: 4px;
+		margin: 5px 0;
+	}
+	#progress-container {
+		padding: 10px 15px;
+		background: #ccd9e5;
+	}
+	#progress-bar {
+		position: relative;
+		background: #fff;
+		background: repeating-linear-gradient(to right, #fff, #fff 19px, #888 19px, #888 20px);
+		height: 13px;
+		border-radius: 4px;
+		border: 1px solid #4281c0;
+	}
+	#progress-bar .ui-progress {
+		position: absolute;
+		background: #369;
+		top: 0;
+		left: 0;
+		width: 0%;
+		height: 100%;
+		-webkit-transition: width 0.3s;
+		-moz-transition: width 0.3s;
+		-o-transition: width 0.3s;
+		transition: width 0.3s;
+	}
+	#progress-bar .ui-progress:after {
+		content: '';
+		position: absolute;
+		right: 0;
+		bottom: 100%;
+		width: 0;
+		height: 0;
+		margin-right: -8px;
+		border-left: 8px solid transparent;
+		border-right: 8px solid transparent;
+		border-top: 12px solid #369;
+	}
+
+	.container .questions-container .btn {
+		 
+		border-radius: 6px !important;
+		border: 2px solid #4876a3;
+		font-weight: bold;
+		font-family: Arial, verdana;
+		color: #4876a3;
+		min-width: 11em;
+		margin-left: 5%;
+		float: none;
+		display: inline-block;
+		margin-top: 18px;
+	}
+	.container .questions-container .btn:first-child {
+		margin-left: 0;
+	}
+
+	.container .buttons .btn:active,
+	.container .buttons .btn.active {
+		box-shadow: none;
+		backgrounda: radial-gradient(ellipse 80% 100% at 50% -50%, #4876a3 98%, #369 100%);
+		background: #4876a3;
+		color: #f8f8f8;
+	}
+
+	.container .questions-container .buttons {
+		background: none;
+		box-shadow: none;
+		border-radius: 0;
+		min-width: 90%;
+		text-align: center;
+	}
+
+	.container .buttons .btn:hover span,
+	.container .buttons .btn:active span,
+	.container .buttons .btn.active span {
+		border-bottom: none;
+	}
+
+	@media (max-width: 767px) {
+		.container {
+			width: 100%;
+		}
+		.questions .q-n {
+			font-size: 24px;
+		}
+		.questions-slider {
+			padding-left: 10%;
+			padding-right: 10%;
+			font-size: 18px;
+		}
+
+		body > .container {
+			overflow: hidden;
+		}
+		.questions-container .btn {
+			font-size: 13px;
+		}
+
+		#footer .pull-right.flip {
+			float: none !important;
+			text-align: center;
+		}
+
+		.footer-legal {
+			line-height: 1.4;
+			padding-bottom: 6px;
+		}
+
+	}
+
+	@media (max-width: 480px) {
+		.container .questions-container .btn {
+			min-width: 18em;
+			margin: 0 0 20px 0;
+			line-height: 2.2;
+		}
+		.hidden-xxs {
+			display: none;
+		}
+		.questions-slider {
+			padding-left: 28px;
+		    padding-right: 28px;
+		    line-height: 1.2;
+		}
+		a.menu-q {
+	    	margin-top: -43px;
+	    	width: 45px !important;
+	    }
+		[dir="rtl"] a.menu-q {
+	    	top:245%;
+	    	margin-top: -43px;
+	    	width: 45px !important;
+	    }
+	}
+
+	.icon-fontello-angle-right,
+	.icon-fontello-angle-left {
+		position: absolute;
+	    z-index: 3;
+	    font-size: 70px;
+	    color: rgba(204, 204, 204, 0.65);
+	    cursor: pointer;
+	    display: block;
+	    margin-top: 34px;
+	}
+
+	.icon-fontello-angle-right:hover,
+	.icon-fontello-angle-left:hover {
+		color: rgba(204, 204, 204, 1);
+	}
+
+	.icon-fontello-angle-left {
+		left: 60px;
+		transform: translate3d(100%, 0, 0);
+		-webkit-transform: translate3d(100%, 0, 0);
+	}
+
+	.icon-fontello-angle-right {
+		right: 75px;
+		transform: translate3d(-100%, 0, 0);
+		-webkit-transform: translate3d(-100%, 0, 0);
+	}
+
+
+	[dir="rtl"] .icon-fontello-angle-left {
+		right: 0;
+		left:auto;
+		transform: translate3d(-100%, 0, 0);
+		-webkit-transform: translate3d(-100%, 0, 0);
+	}
+
+	[dir="rtl"] .icon-fontello-angle-right {
+		right: auto;
+		left: 0;
+		transform: translate3d(100%, 0, 0);
+		-webkit-transform: translate3d(100%, 0, 0);
+	}
+	[dir="rtl"] .icon-fontello-angle-left:before { content: '\e802'; }  
+	[dir="rtl"] .icon-fontello-angle-right:before { content: '\e801'; }  
+
+
+	.not-on-first-question .icon-fontello-angle-left,
+	.not-on-current-question .icon-fontello-angle-right {
+		display: block;
+	}
+
+	@media (max-width: 991px) {
+		.icon-fontello-angle-right,
+		.icon-fontello-angle-left {
+			transform: none;
+		    -webkit-transform: none;
+		}
+	}
+
+	@media (max-width: 767px) {
+		.icon-fontello-angle-right,
+		.icon-fontello-angle-left {
+			margin-top: 0;
+		}
+		.icon-fontello-angle-right:before {
+			text-align: right;
+		}
+		.icon-fontello-angle-left:before {
+			text-align: left;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.icon-fontello-angle-right,
+		.icon-fontello-angle-left {
+			/*margin-top: 40px;*/
+		}
+		.questions-container {
+		width: 100%;
+		}
+		.icon-fontello-angle-left {
+   		  left: 0px !important; 
+		}
+		.icon-fontello-angle-right {
+    right: 8px !important;
+}
+	}
+
+	#welcome_overlay .modal-dialog {
+		max-width: 700px;
+	}
+
+	#welcome_overlay .modal-body {
+		padding: 25px 32px 20px;
+	}
+
+	#welcome_overlay div {
+		font-size: 19px;
+	}
+
+	#welcome_overlay .inside {
+		font-size: 0.8em;
+	}
+
+	#welcome_overlay .blue-text {
+	    color: #286090;
+	}
+
+	#welcome_overlay .overlay-emphasis {
+	    font-weight: bold;
+	}
+
+	#welcome_overlay .close {
+	    position: absolute;
+	    right: 14px;
+	    top: 11px;
+	}
+
+	 
+
+	.title-bar {
+		position: relative;
+	}
+
+	a.menu-q {
+	    display: block;
+	    position: absolute;
+	    width: 47px;
+	    height: 23px;
+		top: 50%;
+	    right: 0;
+	    opacity: 0.6;
+	    transform: translateY(-50%);
+	    -webkit-transform: translateY(-50%);
+	}
+
+	a.menu-q:active,
+	a.menu-q:hover {
+		opacity: 1;
+	}
+
+	.over-expanation {
+		background: url("../img/New-OCA-Website-Questions-02-allparts10_en.png") 0 0 no-repeat;
+		display: none;
+		position: absolute;
+	}
+
+	.show-explanation .over-expanation {
+		display: block;
+	}
+
+	.menu-q-expanation {
+	    background-position: top right;
+	    width: 300px;
+	    height: 200px;
+	    right: 2px;
+	    top: 33px;
+	}
+
+	.pos-abs {
+		position: absolute;
+		left: 0;
+		right: 0;
+	}
+
+	.buttons-expanation {
+		width: 300px;
+	    height: 112px;
+	    background-position: -259px -289px;
+	    top: 10px;
+	    left: 50%;
+	    margin-left: 7px;
+	    transform: translateX(-50%);
+	    -webkit-transform: translateX(-50%);
+	}
+	[dir="rtl"] .buttons-expanation {
+	    background-position: -289px -289px;
+	    margin-left: 0px;
+	    margin-right: 7px;
+	}
+
+	.hints-expanation {
+	    width: 300px;
+	    height: 146px;
+	    background-position: -259px -458px;
+	    top: 0;
+	    left: 50%;
+	    margin-left: 7px;
+	    transform: translateX(-50%);
+	    -webkit-transform: translateX(-50%);
+	}
+	[dir="rtl"] .hints-expanation {
+	    background-position: -285px -458px;
+	}
+
+	.progress-expanation {
+		width: 235px;
+	    height: 100px;
+	    background-position: bottom left;
+	    bottom: 40px;
+	    left: 0;
+	}
+
+	#test-progress {
+		position: relative;
+	}
+
+	.show-explanation .title-bar h1,
+	.show-explanation #test-progress .text-center,
+	.show-explanation #progress-container,
+	.show-explanation .questions-container .questions {
+		opacity: 0.4;
+		pointer-events: none;
+	}
+
+
+
+	#progress_test {
+		position: absolute;
+		max-width: 400px;
+	    left: 50%;
+	    transform: translateX(-50%);
+	    margin-top: 11px;
+	    padding: 10px 20px;
+	    border: 1px solid #ccc;
+	    border-top: 4px solid #336699;
+	    pointer-events: none;
+	    transition: .3s ease-out opacity;
+	    background: #fff;
+	    z-index: 1;
+	}
+
+	#progress_test:empty {
+		opacity: 0;
+		padding: 0;
+		border: none;
+	}
+
+	#progress_test span {
+	    color: #C59432;
+	    font-weight: bold;
+	    font-family: "Century Gothic", Arial, Verdana;
+	    font-size: 17px;
+	    -webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+
+	@media (max-width: 1024px) {
+		.hints-expanation {
+			display: none !important;
+		}
+		body > .container {
+			overflow: hidden;
+		}
+		body {
+			min-height: calc(100vh - 60px);
+		}
+	}
+
+	@media (max-width: 767px) {
+		.show-explanation .title-bar h1,
+		.show-explanation #test-progress .text-center,
+		.show-explanation #progress-container,
+		.show-explanation .questions-container .questions {
+			opacity: 0.1;
+		}
+
+		.show-explanation .questions-container .buttons.btn-group {
+			opacity: 0.5;
+			pointer-events: none;
+		}
+
+		body {
+			min-height: 100vh;
+		}
+
+		.show-explanation .buttons.btn-group.center-block .btn {
+			opacity: 0.5;
+			pointer-events: none;
+			touch-events: none;
+		}
+		#welcome_overlay .modal-dialog {
+			width: 93%;
+		}
+		#welcome_overlay .modal-content {
+			max-height: 90vh;
+	    	overflow: auto;
+	    }
+	    #welcome_overlay .modal-body {
+	    	padding: 20px 20px 20px;
+	    }
+	    #welcome_overlay .close {
+			right: 5px;
+	    	top: 3px;
+	    }
+	    #welcome_overlay .modal-body div p {
+	    	margin-bottom: 0;
+	    }
+	    #welcome_overlay .inside {
+	    	display: block;
+	    	line-height: 1.4;
+	    }
+	    #welcome_overlay div {
+	    	font-size: 15px;
+	    }
+	    #welcome_overlay div .inside {
+	    	font-size: 0.9em;
+	    }
+	    .menu-q-expanation {
+	    	 
+	    	visibility: hidden;
+		}
+		#progress_test {
+			left: 0;
+			right: 0;
+			transform: none;
+		}
+		 
+
+		#footer {
+			margin-top: 30px;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.progress-expanation {
+			width: 100%;
+			background-position: 114px bottom;
+			 
+		}
+		 
+		.title-bar {
+			margin-top: 50px;
+		}
+		/*.logo {
+			top: -8px;
+		}*/
+		.title-bar h1 {
+			font-size: 15px;
+		}
+
+		.container .questions-container .btn:last-of-type {
+			margin-bottom: 5px;
+		}
+	}
+
+	.buttons.btn-group.center-block {
+		touch-action: none;
+	}
+
+	.oca-intro-text {
+		margin-bottom: 15px;
+	}
+
+	.inside ul,
+	.inside li {
+		margin-bottom: 13px;
+	}
+
+	@media (max-width: 480px) {
+		.inside ul {
+			margin-bottom: 0;
+		}
+		.oca-intro-text,
+		.inside li {
+			margin-bottom: 5px;
+		}
+		/*#header .right-holder {
+			display: none !important;
+		}*/
+		.device-iphone #apple_wallet_holder {
+			display: block;
+		}
+		body {
+			padding-bottom: 30px;
+		}
+	}
+
+	#apple_wallet_holder_alt,
+	#apple_wallet_holder {
+		display: none;
+	}
+
+	.device-iphone #apple_wallet_holder_alt {
+		display: block;
+	}
+
+	.device-iphone #apple_wallet_holder {
+		height: 44px;
+		position: fixed;
+	    bottom: 0;
+	    left: 0;
+	    right: 0;
+	    z-index: 4;
+	}
+
+	.device-iphone #apple_wallet {
+		padding-bottom: 9.0625%;
+		display: block;
+		position: absolute;
+	    bottom: 0;
+	    left: 0;
+	    right: 0;
+	    background: url(/theme/images/apple_wallet.png) top left/contain no-repeat transparent;
+	}
+
+	#apple_wallet_alt {
+		font-size: 12px;
+	    text-align: center;
+	    display: block;
+	    padding-top: 8px;
+	    position: absolute;
+	    left: 0;
+	    right: 0;
+	}
+
+	@media (max-width: 330px) {
+		.menu-q {
+			display: none !important;
+		}
+	}
+	</style>
+
+</head>
+<body>	
+	<!-- <header> -->
+	<header class="quiz-header" style="width: 100%;">
+	    <div id="logo">
+	        <img src="{% static 'images/logo_en.png' %}" />
+	    </div>
+	    <div id="logo_spacer"></div>
+	    <h1>Free Personality Test<span id="personality_text"> | <span class="font-blue"></span>Oxford Capacity Analysis</span></h1>
+	</header>
+	<main  style="width: 100%;">		
+	</main>
+	<!-- </header> -->
+
+	<div class="container">	
+
+		<div class="questions-container gender-male" style="margin: auto;">
+			<div></div>
+		
+			<div class="icon-fontello-angle-left"> </div>
+			<div class="icon-fontello-angle-right"> </div>
+			
+
+			<div class="questions">
+				<div class="questions-slider active" data-q="1">
+				</div>
+				<div class="questions-finished">
+					<div class="questions-spinner"></div>
+					<p class="text-center">Processing your answers.</p>
+				</div>
+			</div>
+
+			<div class="pos-abs">
+				<div class="buttons-expanation over-expanation"></div>
+			</div>
+
+			<div class="buttons btn-group center-block">
+
+				<button id="options" type="button" class="btn btn-squiggly" data-answer="Yes">YES</button>
+				<button id="options" type="button" class="btn btn-squiggly" data-answer="Maybe">MAYBE</button>
+				<button id="options" type="button" class="btn btn-squiggly" data-answer="No">NO</button>
+				<br><br>
+
+				
+				<div class="pos-abs hidden-xs hidden-sm">
+					<div class="hints-expanation over-expanation"></div>
+				</div>
+				<div id="progress_test"></div>
+			</div>
+
+			<div id="test-progress">
+				<div class="progress-expanation over-expanation"></div>
+				<p class="text-center">&mdash; TEST PROGRESS &mdash;</p>
+				<div id="progress-container">
+					<div id="progress-bar"><div class="ui-progress"></div></div>
+				</div>
+			</div>
+
+		</div>
+
+		<div id="apple_wallet_holder" class="hidden">
+			<a id="apple_wallet"></a>
+		</div>
+		<div id="apple_wallet_holder_alt" class="hidden">
+			<a id="apple_wallet_alt"><img src="/theme/images/apple-wallet-icon.png" style="width: 20px; margin-top: -2px;"> Add to Apple Wallet</a>
+		</div>
+
+		<div id="welcome_overlay" class="modal bs-modal-center gender-male" tabindex="-1" role="dialog">
+		  	<div class="modal-dialog modal-lg">
+		    	<div class="modal-content">
+
+		      		<div class="modal-body">
+
+		      			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+						<div class="oca-intro-text">
+							
+								Hello<span id="user" class="overlay-emphasis blue-text"> </span>,
+								
+									and <span class="overlay-emphasis">welcome</span> to the Oxford Capacity Analysis!<br/><span class="inside">Please read these quick & simple instructions so you know what to do:</span>
+								
+							
+						</div>
+
+						<div class="inside">
+							<ul>
+								
+									<li><span class="overlay-emphasis blue-text">Make sure you understand and answer each question:</span> You must complete the test to get your results!
+								<li><span class="overlay-emphasis blue-text">Do not stay too long with one question.</span> Answer it as soon as you understand it and go on to the next question.
+								<li><span class="overlay-emphasis blue-text">Give your answer for how things are for you right now.</span>
+								
+							</ul>
+						</div>
+
+						<div class="text-center">
+
+							<p><strong>
+								
+									Ready to learn more about yourself?
+								
+							</strong></p>
+
+							<button type="button" class="btn btn-primary btn-lg mt1 mb1 start-oca-for-real" data-dismiss="modal">START TEST</button>
+
+						</div>
+		      		</div>
+		      	</div>
+			</div>
+		</div>
+
+		<div id="footer" style="width: 83%;
+	    margin: auto;">
+			<div class="footer-legal">
+				© 2019 Church of Scientology. All Rights Reserved.
+				<div class="pull-right flip"><a href="/privacy-notice.html">Privacy Notice</a> - <a href="/terms.html">Terms of Use</a> - <a href="/legal-notice.html">Legal Notice</a>			
+					- <a href="/cookie-policy.html">Cookie Policy</a>		
+				</div>
+			</div>
+		</div>	
+
+	</div>
+
+	<script src="{% static 'js/combained.js' %}"></script>
+	<script type="text/javascript" src="https://tr.standardadmin.org/tr.action" async></script>
+	<script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
+	<script src="{% static 'js/oct.js' %}" type="text/javascript"></script>
+	<script src="{% static 'js/hammer.min.js' %}"></script>
+	<script> var _gcui_loglevel = 'fatal'; </script>
+	<script src="{% static 'js/preload.js' %}"></script>
+	<script src="{% static 'js/notify.min.js' %}"></script>
+	<script src="{% static 'js/paminta.js' %}"></script>
+
+	<script>
+		var attemptedQuestion = 0;
+
+		// window.addEventListener('beforeunload', function (e) {
+		// 	console.log(" **** Browser closed on attemptedQuestion ****==>  ",attemptedQuestion)			
+		// 	window.location.href = "/completion/"+"quit";
+			
+		//     e.preventDefault();
+		//     e.returnValue = '';
+		// });
+
+		
+		var idleTime = 0;
+		$(document).ready(function () {
+		 	loadCount();
+
+		    //Increment the idle time counter every minute.
+		    var idleInterval = setInterval(timerIncrement, 60000); // 1 minute
+
+		    //Zero the idle timer on mouse movement and key pressed.
+		    $(this).mousemove(function (e) {
+		    	console.log("idleTime ==> ", idleTime)
+		        idleTime = 0;
+		    });
+		    $(this).keypress(function (e) {
+		    	console.log("idleTime ==> ", idleTime)
+		        idleTime = 0;
+		    });	   
+		});
+
+		function timerIncrement() {
+		    idleTime = idleTime + 1;
+		    if (idleTime >= 10) { // 10 minutes
+		    	console.log("idleTime Incremented ==> ", idleTime)
+		    	window.location.href = "/completion/" +"inactivity";
+		    }
+		}
+
+		function loadCount(){
+			$(".icon-fontello-angle-right").css("display", "none");
+
+		    $.ajax({            
+			  type: "GET",
+			  url: "ques/",
+			  dataType: 'json',
+			  traditional: true,
+			  success: function(data) {
+			    if (data.status =="Success"){
+			    	// $(".questions-slider").css("display", "none");
+			    	if (data.attempted == 0){
+			    		$('#welcome_overlay').modal('show');
+
+			    		$("#user").append("<span class='insert_name'>"+data.user+"</span>");
+
+						$(".questions-slider").append("<span class='q-n'>"+(data.attempted+1)+".</span>"+data.questions);
+
+
+						$('.ui-progress').css('width',(data.attempted/2)+'%');
+						attemptedQuestion = 0;
+			    	}	   
+			    	else{
+			    		$('body').addClass('not-on-first-question');
+
+						$(".questions-slider").append("<span class='q-n'>"+(data.attempted+1)+".</span>"+data.questions);
+
+						$('.ui-progress').css('width',(data.attempted/2)+'%');
+						attemptedQuestion = data.attempted;
+			    	}
+
+			    	// $(".questions-slider").css("display", "block");
+
+			    }
+			    else{
+			    	console.log("Failed")	    	
+			    }                
+			  }
+		    });
+		}
+
+		$(document).on('click', '#options',function(e){
+			var s = $(".q-n").text();
+			var qn = s.replace(/.$/, "");
+			// console.log("Qn: ",typeof(qn))	
+			var val = $(event.target).attr('data-answer')
+			// console.log("Option",val)
+			var url="/quiz/"+qn+ "/"+val
+
+			$.ajax({            
+			  type: "GET",
+			  url: url,
+			  dataType: 'json',
+			  traditional: true,
+			  success: function(data) {
+			    if (data.status =="Success"){
+			    	if (data.attempted<200) { //200
+
+			    		attemptedQuestion = data.attempted;
+
+			    		if(data.answer == "none"){	    		
+							// console.log("== Current question ==")
+							$(".icon-fontello-angle-right").css("display", "none");
+						}
+
+				    	$('.questions-slider').empty();
+				    	$('.buttons button').eq(0).removeClass('pressed-in');
+						$('.buttons button').eq(1).removeClass('pressed-in');
+						$('.buttons button').eq(2).removeClass('pressed-in');
+
+						if (data.answer === "Yes") $('.buttons button').eq(0).addClass('pressed-in');
+						if (data.answer === "Maybe") $('.buttons button').eq(1).addClass('pressed-in');
+						if (data.answer === "No") $('.buttons button').eq(2).addClass('pressed-in');
+
+
+				    	$(".questions-slider").append("<span class='q-n'>"+(parseInt(qn)+1)+".</span>"+data.questions);
+
+						$('.ui-progress').css('width', (parseInt(qn)/2)+'%');
+					}
+					else{
+						// console.log("Completed")
+						// window.location.href = "/result/"+data.user_id;
+						window.location.href = "/completion/"+"completed";
+					}
+			    }
+			    else{
+			    	// console.log(" Survey Completed")
+			    	// window.location.href = "/result/"+data.user_id;
+			    	window.location.href = "/completion/"+"completed";
+			    }
+			  }
+			});
+
+		});
+
+
+		$(document).on('click', '.icon-fontello-angle-left', function(e) {
+			$(".icon-fontello-angle-right").css("display", "block");
+
+			var s = $(".q-n").text();
+			var qn = s.replace(/.$/, "");
+			// console.log("Qn: ",typeof(qn))
+			var url = "prev/"+qn
+			// console.log("URL: ",url)
+			
+			$.ajax({            
+			  type: "GET",
+			  url: url,
+			  dataType: 'json',
+			  traditional: true,
+			  success: function(data) {
+			    if (data.status =="Success"){
+					if (data.questions) {
+					
+
+			    		$('.questions-slider').empty();
+			    		$('.buttons button').eq(0).removeClass('pressed-in');
+						$('.buttons button').eq(1).removeClass('pressed-in');
+						$('.buttons button').eq(2).removeClass('pressed-in');			
+						
+						$(".questions-slider").append("<span class='q-n'>"+(parseInt(qn)-1)+".</span>"+data.questions);
+
+						if (data.answer === "Yes") $('.buttons button').eq(0).addClass('pressed-in');
+						if (data.answer === "Maybe") $('.buttons button').eq(1).addClass('pressed-in');
+						if (data.answer === "No") $('.buttons button').eq(2).addClass('pressed-in');
+
+						$('.ui-progress').css('width', ((parseInt(qn)-2)/2)+'%');
+					} 
+			    }
+			  }
+		    });
+			
+		 });
+
+
+		$(document).on('click', '.icon-fontello-angle-right', function(e) {
+			var s = $(".q-n").text();
+			var qn = s.replace(/.$/, "");
+			// console.log("Qn: ",qn)
+			var url = "next/"+qn
+			// console.log("URL: ",url)
+			
+			$.ajax({            
+			  type: "GET",
+			  url: url,
+			  dataType: 'json',
+			  traditional: true,
+			  success: function(data) {
+			    if (data.status =="Success"){
+					if (data.questions) {
+						if(data.answer == "none"){	    		
+							// console.log("== Current question ==")
+							$(".icon-fontello-angle-right").css("display", "none");
+						}	
+
+			    	    $('.questions-slider').empty();
+			    	    $('.buttons button').eq(0).removeClass('pressed-in');
+						$('.buttons button').eq(1).removeClass('pressed-in');
+						$('.buttons button').eq(2).removeClass('pressed-in');	
+
+
+						$(".questions-slider").append("<span class='q-n'>"+(parseInt(qn)+1)+".</span>"+data.questions);
+
+						if (data.answer === "Yes") $('.buttons button').eq(0).addClass('pressed-in');
+						if (data.answer === "Maybe") $('.buttons button').eq(1).addClass('pressed-in');
+						if (data.answer === "No") $('.buttons button').eq(2).addClass('pressed-in');
+
+						$('.ui-progress').css('width', ((parseInt(qn))/2)+'%');
+
+					}
+				}
+			  }
+		    });
+		});
+		
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,442 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">     
+
+        <title>Free Personality Test - Scientology Tampa</title>
+        <link rel="stylesheet" href="{% static 'css/combined-styles.min.css' %}" />
+
+        <!-- Facebook Pixel Code -->
+        <script>
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window,document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '267373927496346'); 
+            fbq('track', 'PageView');
+            fbq('track', 'Lead');
+        </script>
+        <noscript>
+             <img height="1" width="1" 
+            src="https://www.facebook.com/tr?id=267373927496346&ev=PageView
+            &noscript=1"/>
+        </noscript>
+        <!-- End Facebook Pixel Code -->    
+
+    </head>
+    <body> 
+      
+        <header>
+            <div id="logo">
+                <img src="{% static 'images/logo_en.png' %}" />
+            </div>
+            <div id="logo_spacer"></div>
+            <h1>Oxford Capacity Analysis&reg;<span id="personality_text"> | <span class="font-blue">Persönlichkeitstest</span></span>
+            {% if superuser %}
+                <a href="{% url 'user_detail' %}"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Admin Panel</a>
+            {% endif %}
+            </h1>
+        </header>
+        
+        <main>
+            <!-- <nav class="header-docker">
+                <ul>
+                    <li><a href="#test_description">What is the OCA?</a></li>
+                    <li><a href="#how-it-works">How it works</a></li>
+                    <li><a href="#personal-success">Personal Successes</a></li>
+                </ul>
+            </nav> -->
+
+            <section class="description">
+                <div id="test_description">
+                    <h2>WMACHEN SIE DEN WOHL GENAUESTEN
+UND VERLÄSSLICHSTEN <b>PERSÖNLICHKEITSTEST</b></h2>
+                    <div class="pie-chart">
+                        <div class="chart">
+                            <img src="{% static 'images/oca.jpg' %}" />
+                        </div>
+                        <div class="chart-link">
+                            <!--<a href="what-makes-oca-unique.html">Find out more&nbsp;<span class="arrow-right-small"></span></a>-->
+                        </div>
+                    </div>
+                    <p>Ihr IQ, Ihre Persönlichkeit und Ihre Fähigkeiten bestimmen, wie sehr Glück und Erfolg Ihr Leben bestimmen. Millionen Menschen haben seit 1960 aus diesem Persönlichkeitstest Nutzen gezogen. Einzigartig an diesem Test ist, dass er nicht nur eine genaue Einschätzung bringt, sondern auch von einem persönlichen Gespräch gefolgt wird, um Ihnen aufgrund Ihrer Testergebnisse praktische Empfehlungen zu geben.</p>
+                    <p>Sie sind ein einzigartiges Individuum. Sie haben Ihre eigenen Wesenszüge. Einige davon machen es Ihnen möglich, in Ihrem Leben Großes zu vollbringen, andere können bewirken, dass Sie sich zurückhalten und Ihr wahres Potenzial nicht einsetzen.</p>
+                </div>
+                <div id="test_form">
+                    <div class="form-box">
+                        
+                        <div class="privacy-info-box">
+                            
+                        </div>
+                        
+                        <div class="form-content">
+                            <form id="oca_start_form" method="POST" action="{% url 'registeration' %}"> {% csrf_token %}
+                          
+                                <h3>My problem is:</h3>
+                                <div class="form-field">
+                                    <div class="field-group">
+                                        <div class="col">
+                                            <label class="box new-radio-inputs-first"><input type="radio" name="choose" value="stress" checked /> Stress</label>
+                                            <label class="box new-radio-inputs-first"><input type="radio" name="choose" value="health"/> Health</label>
+                                           <!--  <label class="box new-radio-inputs-first career"><input type="radio" name="choose" value="career" /> career</label> -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-field">
+                                    <div class="field-group">
+                                        <div class="col">
+                                            <label class="box new-radio-inputs"><input type="radio" name="choose" value="relationships"/> Relationships</label>
+                                            <label class="box new-radio-inputs"><input type="radio" name="choose" value="money"/> Money</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <input type="hidden" name="fname" value="" />
+                                <input type="hidden" name="lname" value="" />
+                                <input type="hidden" name="country" value="US" />
+                                <input type="hidden" name="countryname" value="United States" />
+                                <input type="hidden" name="zipcode" value="0" />
+                                <input type="hidden" name="origin" value="original" />
+                              
+								<div class="form-field">
+                                    <label>Name</label><br>
+                                    <input type="text" id="full_name" name="fname" placeholder="First & Last" required/>
+                                </div>
+                                <div class="form-field">
+                                    <label>Email</label><br>
+                                    <input type="email" id="email" name="email" placeholder="@email" data-paminta="email" required/>
+                                </div>
+                                <div class="form-field">
+                                    <div class="field-group">
+                                        <label class="col col-left">Age</label>
+                                        <div class="col">
+                                            <input type="number" name="age" placeholder="your age" data-paminta="text" required/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-field">
+                                    <div class="field-group">
+                                        <label class="col col-left">Gender</label>
+                                        <div class="col">
+                                            <label class="box"><input type="radio" name="gender" value="male" /> Male</label><!--
+                                            --><label class="box"><input type="radio" name="gender" value="female" checked="true"/> Female</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-field">
+                                    <div class="field-group">
+                                        <label class="col col-left">Cell</label>
+                                        <div class="col">
+                                            <input type="tel" id="phone" name="phone" placeholder="cell phone" data-paminta="text"  required />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-field">
+                                    <div class="field-group">
+                                        <div class="col col-left">
+                                            <input type="checkbox" name="concent" checked="true">
+                                        </div>
+                                        <label class="col" style="font-weight:normal;">Yes, please SMS me</label>
+                                    </div>
+                                </div>
+                                <div class="form-field">
+                                    <button type="submit" class="glass-button">START TEST</button>
+                                </div>
+                                <!-- <input type="hidden" name="orgid" value="tpa" /> -->
+                            </form>
+                        </div>
+                    </div>
+                </div>     
+		          
+            </section>
+            <section  id="how-it-works" class="how-it-works">
+                <h2>WIE ES<b>FUNKTIONIERT</b>:</h2>
+                <ul>
+                    <li>
+                        <div class="text">
+                            <h4>Schritt 1: <span class="step-text">MACHEN SIE DEN TEST</span></h4>
+                            <p>
+                                Der Oxford Capacity Analysis (OCA) Test teilt die Wesenszüge einer Person in zehn Kategorien ein:
+                            </p>
+                            <p>
+                            Er ist eine Analyse, die auf Ihren Antworten basiert. Er zeigt Ihnen Ihre Meinung über sich selbst. Es dauert etwa eine Stunde, um ihn auszufüllen.
+                        </p>
+                        </div>
+                        <div class="image">
+                            <img src="{% static 'images/step-1.jpg' %}" />
+                        </div>
+                    </li>
+                    <li>
+                        <div class="text">
+                            <h4>Schritt 2: <span class="step-text">ERFAHREN SIE DAS ERGEBNIS IHRES TESTS</span></h4>
+                            <p>
+                                Nachdem Sie den Test vollständig ausgefüllt haben, wird ein Schaubild Ihres Persönlichkeitstests generiert und angezeigt. Dies dauert weniger als eine Minute.
+                            </p>
+                            <p>Es zeigt Ihre Stärken und Schwächen – die Persönlichkeits­merkmale, die Sie nutzen, und jene, bei welchen Sie Hilfe gebrauchen könnten.</p>
+                        </div>
+                        <div class="image">
+                            <!-- <img src="https://f.edgesuite.net/imagecache/gcui_inline_default/data/www.scientology.org/files/church-of-scientology-tampa-exterior-day.jpg" /> -->
+                        </div>
+                    </li>
+                    <li>
+                        <div class="text">
+                            <h4>Schritt 3: <span class="step-text">PERSÖNLICHES GESPRÄCH</span></h4>
+                            <p>
+                                Während die Testkurve verschiedene Charaktereigenschaften zeigt, ist es die Wechselbeziehung zwischen diesen Charakterzügen, die Ihnen ein umfassenderes Bild von Ihrer Persönlichkeit liefert.
+                            </p>
+
+                            <p>Wir bieten Ihnen daher unverbindlich ein Gespräch an, um detailliertere Informationen über Ihren Persönlichkeitstest zu erhalten. Sie werden mit einer ausgebildeten Person sprechen.</p>
+
+                            <p>In diesem persönlichen Gespräch erhalten Sie ein besseres Verstehen Ihrer starken Seiten und derjenigen Aspekte Ihrer Persönlichkeit, die Sie als Unvollkommen­heiten ansehen. Dann wird Ihnen ein Pfad empfohlen, mit dem Sie zügig nachhaltigen Erfolg erreichen können.</p>
+                        </div>
+                        <div class="image">
+                            <img src="{% static 'images/step-3.jpg' %}" />
+                        </div>
+                    </li>
+                </ul>
+            </section>
+            <section class="what-makes-it-unique">
+                <h2>WESHALB BEZEICHNEN WIR DEN OCA TEST ALS <b>ETWAS BESONDERES?</b></h2>
+                <p>
+                    Dieser Persönlichkeitstest vermittelt Ihnen nicht nur eine Einschätzung Ihrer selbst; Sie erhalten nicht nur ein konkretes Ergebnis, sondern auch <em>praktische Lösungsempfehlungen</em>.
+                </p>
+                <p>
+                    Wenn Sie die Haupteigenschaften Ihrer Persönlichkeit kennen, können Sie kompetenter, erfolgreicher und glücklicher werden, als Sie es sich je vorgestellt haben. Dadurch, dass Sie entdecken, welche Ihrer Wesenszüge Ihnen gegenwärtig zum Vorteil gereichen und welche verbessert werden können, ist es Ihnen möglich, die nötigen Schritte zu unternehmen, um Ihre starken Seiten noch zu verstärken und Ihre unvollkommenen Seiten zu verbessern.
+                </p>
+                <p>
+                    Der OCA Test und das nachfolgende Beratungsgespräch sind kosten- und beitragsfrei. Sie sind ein Dienst im Interesse der Allgemeinheit. Es erwachsen Ihnen keinerlei Verpflichtungen.
+                </p>
+                <div class="oca-graph-block">
+                    <div class="oca-graph"><img src="{% static 'images/graph.png' %}" /></div>
+                    <div class="oca-note">
+                        <div class="text font-blue">
+                            Apart from the test results, many who 
+							do the recommended courses get real improvement 
+							in their lives and even IQ score!
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="the-real-you">
+                <h2>LERNEN SIE <b>IHR WAHRES SELBST</b> KENNEN</h2>
+                <p>
+                    Praktisch unser ganzes Leben lang wird uns gesagt, dass die Persönlichkeit eines Menschen vererbt ist und nicht verändert werden kann, und dass wir einfach „damit zurechtkommen“ müssen. Das ist nicht wahr. Es ist eine demonstrierbare Tatsache, dass ein Mensch seine Persönlichkeit verändern kann, dass er sich verbessern und glücklicher werden kann, dass er mit den Herausforderungen des Lebens mit Leichtigkeit und Gewandtheit fertigwerden kann – kurzum: <em>Sie können Sie selbst sein</em>.
+                </p>
+                <ul>
+                    <li>Finden Sie die Bereiche, in denen Sie Probleme haben, und entdecken Sie Ihre gegenwärtige Stufe des Glücklichseins, der Selbstbewusstheit, der Stabilität und mehr.</li>
+                    <li>Erfahren Sie, inwiefern Ihre Persönlichkeit Ihre Fähigkeit bestimmt, mit anderen Menschen Umgang zu pflegen.</li>
+                    <li>Kennen Sie Ihre starken Seiten und erfahren Sie, wie Sie sie noch verstärken und im Leben noch erfolgreicher und glücklicher werden können.</li>
+                </ul>
+            </section>
+            <section id="personal-success" class="personal-success">
+                <h2>PERSÖNLICHE <b>ERFOLGE</b></h2>
+                <ul>
+                    <li>
+                        <div class="image">
+                            <img src="{% static 'images/success-1.jpg' %}" />
+                        </div><!--
+                        --><div class="text">
+                            <h4> ANTWORTEN FINDEN: </h4>
+                            <p>
+                                <blockquote>
+                                    „In Scientology wurden viele Fragen beantwortet, die ich schon immer hatte, und selbst einige, von denen ich nicht einmal wusste, dass ich sie hatte. Es schien fast zu einfach – ich fragte mich: ,Ist es wirklich so einfach?‘ Es ist so einfach!“ – David
+                                </blockquote>
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="image">
+                            <img src="{% static 'images/success-2.jpg' %}" />
+                        </div><!--
+                        --><div class="text">
+                            <h4> ZIELE VERWIRKLICHEN: </h4>
+                            <p>
+                                <blockquote>
+                                    „Dank dem, was ich herausgefunden habe, wurde ich erfolgreicher in meinem Tätigkeitsbereich und in meiner Arbeit. Ich muss sagen, dass es mir wirklich geholfen hat, meine Träume zu verwirklichen und das auf die beste nur mögliche Weise.“ – Daniella
+                                </blockquote>
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="image">
+                            <img src="{% static 'images/success-3.jpg' %}" />
+                        </div><!--
+                        --><div class="text">
+                            <h4> SELBSTSICHERHEIT GEWINNEN: </h4>
+                            <p>
+                                <blockquote>
+                                    „Ich war sehr unsicher und fragte mich, weshalb sich in meinem Leben kein Erfolg einstellte. Jetzt bin ich sehr selbstsicher. Ich komme auch besser mit anderen zurecht und kann ihnen mehr helfen. Jetzt kenne ich mich selbst!“ – Cynthia
+                                </blockquote>
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="image">
+                            <img src="{% static 'images/success-4.jpg' %}" />
+                        </div><!--
+                        --><div class="text">
+                            <h4> ZWISCHENMENSCHICHE BEZIEHUNGEN VERBESSERN: </h4>
+                            <p>
+                                <blockquote>
+                                    „Ich bin eher ein wilder aus sich herausgehender Typ, der nicht viel auf feste Regeln gibt. Aber jetzt komme ich wesentlich besser mit anderen zurecht. Meine Frau und ich kommen bestens miteinander aus. Das Leben ist eine Freude. Es scheint nichts mehr zu geben, mit dem wir nicht fertigwerden könnten.“ – Shawn
+                                </blockquote>
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+            <section class="questionnaire">
+                <div class="questionnaire-box">
+                    <div class="questions-block">
+                        <ul>
+                            <li class="center"><div><span class="number">1.</span> Do you make thoughtless remarks or accusations which later you regret?</div></li>
+                            <li class="right"><div><span class="number">2.</span> When others are getting rattled, do you remain fairly composed?</div></li>
+                            <li class="right"><div><span class="number">3.</span> Do you browse through railway timetables, directories, or dictionaries just for pleasure?</div></li>
+                            <li class="right"><div><span class="number">4.</span> When asked to make a decision, would you be swayed by your like or dislike of the personality involved?</div></li>
+                            <li class="right"><div><span class="number">5.</span> Do you intend two or less children in your family even though your health and income will permit more?</div></li>
+                            <li class="right"><div><span class="number">6.</span> Do you get occasional twitches of your muscles, when there is no logical reason for it?</div></li>
+                            <li class="right"><div><span class="number">7.</span> Would you prefer to be in a position where you did not have the responsibilities of making decisions?</div></li>
+                            <li class="right"><div><span class="number">8.</span> Are your actions considered unpredictable by other people?</div></li>
+                            <li class="right"><div><span class="number">9.</span> Do you consider more money should be spent on social security?</div></li>
+                            <li class="right"><div><span class="number">10.</span> Do other people interest you very much?</div></li>
+                            <li class="right"><div><span class="number">11.</span> Is your voice monotonous, rather than varied in pitch?</div></li>
+                            <li class="right"><div><span class="number">12.</span> Do you normally let the other person start the conversation?</div></li>
+                            <li class="right"><div><span class="number">13.</span> Are you readily interested in other people's conversations?</div></li>
+                            <li class="right"><div><span class="number">14.</span> Would the idea of inflicting pain on game, small animals or fish prevent you from hunting or fishing?</div></li>
+                            <li class="right"><div><span class="number">15.</span> Are you often impulsive in your behavior?</div></li>
+                            <li class="right">
+                                <div class="complete">
+                                    <div>Processing your answers.</div>
+                                    <div><img src="{% static 'images/loader.svg' %}" /></div>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="arrow-prev">
+                            <div class="button"></div>
+                        </div>
+                        <div class="arrow-next">
+                            <div class="button"></div>
+                        </div>
+                    </div>
+                    <div class="choices-block">
+                        <div>
+                            <ul>
+                                <li class="answer-yes" data-ans="y">
+                                    YES
+                                </li><li class="answer-maybe" data-ans="m">
+                                    MAYBE
+                                </li><li class="answer-no" data-ans="n">
+                                    NO
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="hint-block-kbd">
+                        <div class="hint-box">
+                            <div class="image">
+                                <img src="{% static 'images/kayboard-nums.png' %}" />
+                            </div>
+                            <div class="text">
+                                <span class="font-blue">Hint: use your keyboard to answer!</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="progress-block">
+                        <div>
+                            <div class="label">— TEST PROGRESS —</div>
+                            <div id="progress_bar">
+                                <div class="meter-bar">
+                                    <div class="meter-point"></div>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-load"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="questionnaire_intro">
+                    <div class="modal-box">
+                        <h3>Hello <span class="tester-name font-blue">Unknown</span>, and <b>welcome</b> to the Oxford Capacity Analysis!</h3>
+                        <p>Please read these quick & simple instructions so you know what to do:</p>
+                        <ul>
+                            <li><span class="font-blue">Make sure you understand and answer each question:</span> You must complete the test to get your results!</li>
+                            <li><span class="font-blue">Do not stay too long with one question.</span>Answer it as soon as you understand it and go on to the next question.</li>
+                            <li><span class="font-blue">Give your answer for how things are for you right now.</span></li>
+                        </ul>
+                        <h3>Ready to learn more about yourself?</h3>
+                        <br />
+                        <div class="button-ok">
+                            <div class="glass-button">START TEST</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer style="clear:both">
+            <div class="copyright">
+                &copy; 2016 Church of Scientology. All Rights Reserved.
+            </div>
+            <nav class="footer-links">
+                <a href="{% url 'privacy' %}">Datenschutzinformationen</a>
+                -
+                 <a href="{% url 'terms' %}">Nutzungsbedingungen</a>
+                -
+                 <a href="{% url 'leagal' %}">Rechtliche Informationen</a>
+                 -
+                 <a href="{% url 'cookie' %}">Cookie Policy</a>
+
+            </nav>
+        </footer>
+<div class="loader-img">
+        <div class="modal" id="loading"><!-- Place at bottom of page --></div>
+    </div>
+
+        <style>
+            section.description,
+            section.how-it-works,
+            section.what-makes-it-unique,
+            section.the-real-you,
+            section.personal-success,
+            section.questionnaire
+            {
+                transition: all 500ms ease;
+                display: block;
+            }
+            section.questionnaire {
+                opacity: 0;
+                display: none;
+            }
+        </style>
+
+        <script
+          src="https://code.jquery.com/jquery-2.2.4.min.js"
+          integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+          crossorigin="anonymous"></script>
+        <script src="{% static 'js/notify.min.js' %}"></script>
+        <script src="{% static 'js/paminta.js' %}"></script>
+        <script src="{% static 'js/onsubmit.js' %}"></script>
+        <script>
+            $(document).ready(function() {                
+                $(".loader-img").hide();
+            });
+
+            $(".glass-button").on('click',function(){
+                console.log("******** Test start button pressed **********")
+                $(".loader-img").show();
+                console.log("******** Loading started **********")
+            })
+        </script>
+        
+    </body>
+
+</html>

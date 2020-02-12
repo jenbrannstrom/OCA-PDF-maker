@@ -1,0 +1,335 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	
+<title>Privacy Policy - Church of Scientology International</title>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+	<div class="container">
+		<header>
+            <div id="logo">
+                <img src="{% static 'images/logo_en.png' %}" />
+            </div>
+            <div id="logo_spacer"></div>
+            <h1>Oxford Capacity Analysis&reg;<span id="personality_text"> | <span class="font-blue">Persönlichkeitstest</span></span>
+            {% if superuser %}
+                <a href="{% url 'user_detail' %}"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Admin Panel</a>
+            {% endif %}
+            </h1>
+        </header>
+<main>
+	
+        <h2 class="title lower">PRIVACY POLICY</h2>
+        <p style="text-align:right">
+			
+(<em>Last amended 23 May 2018</em>)
+
+		</p>
+<p>This Privacy Policy governs the processing of your personal data on the basis of the European General Data Protection Regulation (GDPR) by the Church of Scientology International as part of your visit to our website www.oca.scientology.de (hereinafter: &ldquo;Website&rdquo;), or your communication with us via e-mail, telephone, fax and our social media channels (such as Facebook, Twitter, and Instagram).</p>
+        <p><strong><em>If you want more information on how we process personal data via cookies, social plugins and other types of tracking technology, you are kindly referred to our <a href="{% url 'cookie' %}">Cookie Policy</a>.</em></strong></p>
+
+        <ol>
+        <li><strong>WHO ARE WE?</strong>
+            <ol>
+                <li>Your personal data is processed on the basis of applicable data protection legislation by the Church of Scientology International, 6331 Hollywood Boulevard, Los Angeles, CA 90028, United States of America (hereinafter: &ldquo;CSI&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;, &ldquo;our&rdquo;). You can contact us via e-mail at <a href="mailto:dpo@scientology.net">dpo@scientology.net</a>.</li>
+                <li>Where reference is made in this Privacy Policy to laws or regulations, possible amendments to these laws or regulations are implicitly included.</li>
+                <li>We reserve the right to change and adapt this Privacy Policy on our own initiative. In that case, those changes and adaptations will be communicated to you via our Website at least two weeks before those changes and adaptations will become applicable. Any further use of our Website will be subject to the amended Privacy Policy.</li>
+            </ol>
+        </li>
+        <li><strong>WHICH OF YOUR PERSONAL DATA DO WE PROCESS?</strong>
+            <ol>
+                <li>When you <strong>use </strong>our Website or our social media channels, we process:
+                    <ul>
+                        <li><u>Technical information</u>, such as information concerning your device, IP-address, browser type, geographical location and operating system;</li>
+                        <li><u>Browsing behavior</u>, such as the length of your visit, the links you click, the pages you visit and the frequency with which you visit a page.</li>
+                    </ul>
+                </li>
+                <li>When you <strong>communicate</strong> with us by filling out a contact form on our Website, or via <nobr>e-mail,</nobr> telephone, fax or social media channels, we process:
+                    <ul>
+                        <li><u>Identity information</u> you provide us with, such as your first name, last name, gender, birth date, age, the company you work for, preferences and interests;</li>
+                        <li><u>Contact details</u> you provide us with, such as your e-mail address, postal address, country, telephone number and mobile telephone number;</li>
+                        <li><u>Content of the communication</u>, such as your request or question;</li>
+                        <li><u>Technical information of the communication</u>, such as with whom you communicate at our end, date and time of the communication;</li>
+                        <li><u>Publicly available information</u> about you, such as information publicly available on your social media profile;</li>
+                        <li><u>Any other personal data</u> you provide us with.</li>
+                    </ul>
+                </li>
+                <li>When you <strong>take a personality test,</strong> such as the Oxford Capacity Analysis (OCA) test:
+                    <ul>
+                        <li><u>Identity information</u> you provide us with, such as your first name, last name, gender, birth date, age, preferences and interests;</li>
+                        <li><u>Contact details</u> you provide us with, such as your e-mail address, postal address, country, telephone number and mobile telephone number;</li>
+                        <li><u>Personality information</u> that we can derive from the answers you give to the questions asked during the personality test.</li>
+                    </ul>
+                </li>
+                <li>When you <strong>place an order,</strong> such as for a book or an information kit:
+                    <ul>
+                        <li><u>Identity information</u> you provide us with, such as your first name, last name, the company you work for, preferences and interests;</li>
+                        <li><u>Contact details</u> you provide us with, such as your e-mail address, postal address, country, telephone number and mobile telephone number;</li>
+                        <li><u>Order details</u>, such as the title of the book you purchased;</li>
+                        <li><u>Payment details</u>, such as the amount you paid for your purchase.</li>
+                    </ul>
+                </li>
+                <li>We receive most of your personal data directly from you, but it may happen that we receive additional information about your preferences and browsing behavior from partners such as Google. If you require more information about the personal data these parties process about you and make available to others, you are kindly requested to consult their respective privacy policies.</li>
+            </ol>
+        </li>
+        <li><strong>FOR WHAT PURPOSES DO WE PROCESS YOUR PERSONAL DATA AND WHAT IS THE LEGAL BASIS FOR THIS?</strong>
+            <ol>
+                <li>In the table below, we explain the purposes for which we process your personal data and on the basis of which legal basis we do so. We rely on the following legal bases:
+                    <ul>
+                        <li><u>Your consent</u>, in which you are informed of what this consent means before you freely give your consent;</li>
+                        <li><u>A contract with you</u>, in order to perform that contract or in order to take steps prior to entering into a contract with you;</li>
+                        <li><u>A legal obligation</u> that we have to comply with;</li>
+                        <li><u>Our legitimate interest</u>, such as continuous improvements of our Website, social media channels, materials and services to ensure that you have the best experience possible, to keep them safe from misuse and illegal activity, to disseminate and promote them and to make them available to you, including our social betterment and humanitarian programs.</li>
+                    </ul>
+                </li>
+            </ol>
+        </li>
+
+        <p>&nbsp;</p>
+
+        <table style="width: 100.0%; border-collapse: collapse; border: none;" width="100%">
+            <tbody>
+                <tr>
+                    <td style="width: 10.92%; border: solid windowtext 1.0pt; padding: 0in 5.4pt 0in 5.4pt;" width="10%">
+                        <p style="text-align: center; line-height: normal; margin: 12.0pt 0in 12.0pt 0in;"><strong>&nbsp;</strong></p>
+                    </td>
+                    <td style="width: 62.54%; border: solid windowtext 1.0pt; border-left: none; padding: 0in 5.4pt 0in 5.4pt;" width="62%">
+                        <p style="text-align: center; line-height: normal; margin: 12.0pt 0in 12.0pt 0in;"><strong>PURPOSE</strong></p>
+                    </td>
+                    <td style="width: 26.52%; border: solid windowtext 1.0pt; border-left: none; padding: 0in 5.4pt 0in 5.4pt;" width="26%">
+                        <p style="text-align: center; line-height: normal; margin: 12.0pt 0in 12.0pt 0in;"><strong>LEGAL BASIS</strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 10.92%; border: solid windowtext 1.0pt; border-top: none; padding: 0in 5.4pt 0in 5.4pt;" width="10%">
+                        <p style="text-indent: -.25in; line-height: normal; margin: 12.0pt 0in 12.0pt .5in;">1.<span style="font: 7.0pt 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp; </span>&nbsp;</p>
+                    </td>
+                    <td style="width: 62.54%; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0in 5.4pt 0in 5.4pt;" width="62%">
+                        <p style="line-height: normal; margin: 12.0pt 0in 12.0pt 0in;">We process your personal data to <u>provide you</u>, in a personalized and efficient way <u>with the materials, services or information you request</u> via our Website, e-mail, telephone, fax or social media channels.</p>
+                    </td>
+                    <td style="width: 26.52%; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0in 5.4pt 0in 5.4pt;" width="26%">
+                        <p style="text-align: center; line-height: normal; margin: 12.0pt 0in 12.0pt 0in;">Our legitimate interest</p>
+                        <p style="text-align: center; line-height: normal; margin: 12.0pt 0in 12.0pt 0in;">A contract with you</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 10.92%; border: solid windowtext 1.0pt; border-top: none; padding: 0in 5.4pt 0in 5.4pt;" width="10%">
+                        <p style="text-indent: -.25in; line-height: normal; margin: 12.0pt 0in 12.0pt .5in;">2.<span style="font: 7.0pt 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp; </span>&nbsp;</p>
+                    </td>
+                    <td style="width: 62.54%; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0in 5.4pt 0in 5.4pt;" width="62%">
+                        <p style="line-height: normal; margin: 12.0pt 0in 12.0pt 0in;">We process your personal data in order to be able to <u>process your order</u> and to be able to deliver to you the materials or information you request or to provide you with the services you request.</p>
+                    </td>
+                    <td style="width: 26.52%; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0in 5.4pt 0in 5.4pt;" width="26%">
+                        <p style="text-align: center; line-height: normal; margin: 12.0pt 0in 12.0pt 0in;">A contract with you</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 10.92%; border: solid windowtext 1.0pt; border-top: none; padding: 0in 5.4pt 0in 5.4pt;" width="10%">
+                        <p style="text-indent: -.25in; line-height: normal; margin: 12.0pt 0in 12.0pt .5in;">3.<span style="font: 7.0pt 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp; </span>&nbsp;</p>
+                    </td>
+                    <td style="width: 62.54%; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0in 5.4pt 0in 5.4pt;" width="62%">
+                        <p style="line-height: normal; tab-stops: 127.7pt; margin: 12.0pt 0in 12.0pt 0in;">We process your personal data to <u>send you promotional information for our materials and services</u><strong>, </strong>such as communications, promotions, offerings and newsletters, via e-mail or other person-to-person electronic communication channels if you explicitly consented to receiving such promotional information.</p>
+                    </td>
+                    <td style="width: 26.52%; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0in 5.4pt 0in 5.4pt;" width="26%">
+                        <p style="text-align: center; line-height: normal; margin: 12.0pt 0in 12.0pt 0in;">Your consent</p>
+                        <p style="text-align: center; line-height: normal; margin: 12.0pt 0in 12.0pt 0in;">&nbsp;</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 10.92%; border: solid windowtext 1.0pt; border-top: none; padding: 0in 5.4pt 0in 5.4pt;" width="10%">
+                        <p style="text-indent: -.25in; line-height: normal; margin: 12.0pt 0in 12.0pt .5in;">4.<span style="font: 7.0pt 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp; </span>&nbsp;</p>
+                    </td>
+                    <td style="width: 62.54%; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0in 5.4pt 0in 5.4pt;" width="62%">
+                        <p style="line-height: normal; tab-stops: 127.7pt; margin: 12.0pt 0in 12.0pt 0in;">We process your personal data to <u>send you promotional information for materials or services similar to those you previously purchased or received from us</u>, such as communications, promotions, offerings and newsletters, via e-mail or other person-to-person electronic communication channels.</p>
+                    </td>
+                    <td style="width: 26.52%; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0in 5.4pt 0in 5.4pt;" width="26%">
+                        <p style="text-align: center; line-height: normal; margin: 12.0pt 0in 12.0pt 0in;">Our legitimate interest</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 10.92%; border: solid windowtext 1.0pt; border-top: none; padding: 0in 5.4pt 0in 5.4pt;" width="10%">
+                        <p style="text-indent: -.25in; line-height: normal; margin: 12.0pt 0in 12.0pt .5in;">5.<span style="font: 7.0pt 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp; </span>&nbsp;</p>
+                    </td>
+                    <td style="width: 62.54%; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0in 5.4pt 0in 5.4pt;" width="62%">
+                        <p style="line-height: normal; tab-stops: 127.7pt; margin: 12.0pt 0in 12.0pt 0in;">We process your personal data for <u>other marketing purposes</u>, such as on paper or via social media channels, <em>i.e.</em> to provide you with targeted promotional information, such as communications, promotions, offerings and newsletters of CSI and carefully selected partners.</p>
+                    </td>
+                    <td style="width: 26.52%; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0in 5.4pt 0in 5.4pt;" width="26%">
+                        <p style="text-align: center; line-height: normal; margin: 12.0pt 0in 12.0pt 0in;">Our legitimate interest</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 10.92%; border: solid windowtext 1.0pt; border-top: none; padding: 0in 5.4pt 0in 5.4pt;" width="10%">
+                        <p style="text-indent: -.25in; line-height: normal; margin: 12.0pt 0in 12.0pt .5in;">6.<span style="font: 7.0pt 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp; </span>&nbsp;</p>
+                    </td>
+                    <td style="width: 62.54%; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0in 5.4pt 0in 5.4pt;" width="62%">
+                        <p style="line-height: normal; tab-stops: 127.7pt; margin: 12.0pt 0in 12.0pt 0in;">In the framework of sending you promotional information, such as communications, promotions, offerings and newsletters, via e-mail or other person-to-person electronic communication channels, we process your personal data to <u>collect information to analyse our promotional information</u>, such as which of our content in those promotional information you have accessed or on which links in those promotional information you have clicked.</p>
+                    </td>
+                    <td style="width: 26.52%; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0in 5.4pt 0in 5.4pt;" width="26%">
+                        <p style="text-align: center; line-height: normal; margin: 12.0pt 0in 12.0pt 0in;">Your consent</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 10.92%; border: solid windowtext 1.0pt; border-top: none; padding: 0in 5.4pt 0in 5.4pt;" width="10%">
+                        <p style="text-indent: -.25in; line-height: normal; margin: 12.0pt 0in 12.0pt .5in;">7.<span style="font: 7.0pt 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp; </span>&nbsp;</p>
+                    </td>
+                    <td style="width: 62.54%; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0in 5.4pt 0in 5.4pt;" width="62%">
+                        <p style="line-height: normal; tab-stops: 127.7pt; margin: 12.0pt 0in 12.0pt 0in;">We process your personal data to <u>create a unique profile</u> of you to enhance your experience based on your location, your order history, your preferences, your interests, the content in our promotional information you have accessed and, if you took a personality test, the personality information that we can derive from the answers you give to the questions asked during the personality test.</p>
+                    </td>
+                    <td style="width: 26.52%; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0in 5.4pt 0in 5.4pt;" width="26%">
+                        <p style="text-align: center; line-height: normal; margin: 12.0pt 0in 12.0pt 0in;">Your consent</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 10.92%; border: solid windowtext 1.0pt; border-top: none; padding: 0in 5.4pt 0in 5.4pt;" width="10%">
+                        <p style="text-indent: -.25in; line-height: normal; margin: 12.0pt 0in 12.0pt .5in;">8.<span style="font: 7.0pt 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp; </span>&nbsp;</p>
+                    </td>
+                    <td style="width: 62.54%; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0in 5.4pt 0in 5.4pt;" width="62%">
+                        <p style="line-height: normal; tab-stops: 127.7pt; margin: 12.0pt 0in 12.0pt 0in;">We process your personal data:</p>
+                        <p style="text-indent: -17.85pt; line-height: normal; tab-stops: 127.7pt; margin: 12.0pt 0in 12.0pt 35.7pt;"><span style="font-family: Symbol;">&middot;<span style="font: 7.0pt 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span>to <u>comply with legal obligations</u> that we have to comply with, or</p>
+                        <p style="text-indent: -17.85pt; line-height: normal; tab-stops: 127.7pt; margin: 12.0pt 0in 12.0pt 35.7pt;"><span style="font-family: Symbol;">&middot;<span style="font: 7.0pt 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span>to <u>comply with any reasonable request</u> from competent law enforcement agents or representatives, judicial authorities, governmental agencies or bodies, including competent data protection authorities, or</p>
+                        <p style="text-indent: -17.85pt; line-height: normal; tab-stops: 127.7pt; margin: 12.0pt 0in 12.0pt 35.7pt;"><span style="font-family: Symbol;">&middot;<span style="font: 7.0pt 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span>to <u>transfer your personal data</u> to the police or the judicial authorities upon our own initiative as evidence or if we have justified suspicions of an unlawful act or crime committed by you through your use of our Website, our social media channels or other communication channels.</p>
+                    </td>
+                    <td style="width: 26.52%; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0in 5.4pt 0in 5.4pt;" width="26%">
+                        <p style="text-align: center; line-height: normal; margin: 12.0pt 0in 12.0pt 0in;">A legal obligation</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 10.92%; border: solid windowtext 1.0pt; border-top: none; padding: 0in 5.4pt 0in 5.4pt;" width="10%">
+                        <p style="text-indent: -.25in; line-height: normal; margin: 12.0pt 0in 12.0pt .5in;">9.<span style="font: 7.0pt 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp; </span>&nbsp;</p>
+                    </td>
+                    <td style="width: 62.54%; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0in 5.4pt 0in 5.4pt;" width="62%">
+                        <p style="line-height: normal; tab-stops: 127.7pt; margin: 12.0pt 0in 12.0pt 0in;">We process your personal data to <u>perform statistical analyses</u> in order to be able to improve our Website, promotional information, materials and services or to develop new materials and services.</p>
+                    </td>
+                    <td style="width: 26.52%; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0in 5.4pt 0in 5.4pt;" width="26%">
+                        <p style="text-align: center; line-height: normal; margin: 12.0pt 0in 12.0pt 0in;">Our legitimate interest</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 10.92%; border: solid windowtext 1.0pt; border-top: none; padding: 0in 5.4pt 0in 5.4pt;" width="10%">
+                        <p style="text-indent: -.25in; line-height: normal; margin: 12.0pt 0in 12.0pt .5in;">10.<span style="font: 7.0pt 'Times New Roman';">&nbsp; </span>&nbsp;</p>
+                    </td>
+                    <td style="width: 62.54%; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0in 5.4pt 0in 5.4pt;" width="62%">
+                        <p style="line-height: normal; tab-stops: 127.7pt; margin: 12.0pt 0in 12.0pt 0in;">We process your personal data to <u>preserve our legitimate interests</u> or to <u>preserve the legitimate interests of a third party</u> in case your use of our Website, our social media channels or other communication channels can be considered:</p>
+                        <p style="text-indent: -17.85pt; line-height: normal; tab-stops: 127.7pt; margin: 12.0pt 0in 12.0pt 35.7pt;"><span style="font-family: Symbol;">&middot;<span style="font: 7.0pt 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span>a violation of any applicable terms of use of our Website or the intellectual property rights or any other of our or a third party&rsquo;s rights, or</p>
+                        <p style="text-indent: -17.85pt; line-height: normal; tab-stops: 127.7pt; margin: 12.0pt 0in 12.0pt 35.7pt;"><span style="font-family: Symbol;">&middot;<span style="font: 7.0pt 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span>a danger or threat to the security or integrity of our Website, our social media channels or other communication channels or any of our, our select partners&rsquo; or a third party&rsquo;s IT systems due to viruses, Trojan horses, spyware, malware or any other form of malicious code, or</p>
+                        <p style="text-indent: -17.85pt; line-height: normal; tab-stops: 127.7pt; margin: 12.0pt 0in 12.0pt 35.7pt;"><span style="font-family: Symbol;">&middot;<span style="font: 7.0pt 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span>in any way hateful, obscene, discriminating, racist, slanderous, spiteful, hurtful or in some other way inappropriate or illegal.</p>
+                    </td>
+                    <td style="width: 26.52%; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0in 5.4pt 0in 5.4pt;" width="26%">
+                        <p style="text-align: center; line-height: normal; margin: 12.0pt 0in 12.0pt 0in;">Our legitimate interest</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>&nbsp;</p>
+
+        <li><strong>TO WHOM DO WE SEND YOUR PERSONAL DATA?</strong>
+            <ol>
+                <li>We rely on third parties, for example:
+                    <ul>
+                        <li>To provide you our Website (such as a hosting provider); or</li>
+                        <li>To target our promotional information (such as a marketing company); or</li>
+                        <li>To process your order (such as a transport company to deliver you the materials); or</li>
+                        <li>To process your payment (such as a payment service provider or a credit checking agency).</li>
+                    </ul>
+                    <p>These third parties are only allowed to process your personal data on our behalf and upon our explicit written instruction. We also warrant that all those third parties are selected with due care and are committed to observing the safety and integrity of your personal data.</p>
+                </li>
+                <li>We may share your personal data with other national, regional or local organizations of the Church of Scientology, such as local Churches, Missions and social betterment and humanitarian programs. For example, we may share your contact details with a Church in your area if you have expressed an interest in joining a Scientology organization so that they can contact you. However, we will ensure that all Scientology organizations will take due care that all processing of your personal data is in line with what is set out in this Privacy Policy.</li>
+                <li>We may share your personal data for the purposes mentioned in Article 3 with the International Association of Scientologists Administrations (<a href="https://www.iasmembership.org/about/privacy-notice.html">IASA</a>) and the World Institute of Scientology Enterprises (<a href="http://www.wise.org/en_US/feature/legal/privacy.html">WISE</a>). If you require more information about the personal data IASA and WISE process, you are kindly requested to consult their respective privacy policies.</li>
+                <li>We may be legally obliged to share your personal data with competent law enforcement agents or representatives, judicial authorities, governmental agencies or bodies, including competent data protection authorities, to comply with a legal obligation as set out in Article 3 above.</li>
+                <li>We do not send your personal data in an identifiable manner to any other third party than the ones mentioned in Articles 4.1, 4.2, 4.3 and 4.4 without your explicit consent to do so. However, we may send anonymized data to other organizations that may use those data for improving materials and services as well as to tailor the marketing, displaying and selling of those materials and services.</li>
+            </ol>
+        </li>
+        <li><strong>WHERE DO WE PROCESS YOUR PERSONAL DATA?</strong>
+            <ol>
+                <li>We process your personal data both within and outside the European Economic Area (EEA), including in the USA. In order to process your personal data for the purposes outlined in Article 3 above, we may also transfer your personal data to third parties who process on our behalf outside the EEA. Each entity outside the EEA that processes your personal data will be bound to observe adequate safeguards with regard to the processing of your personal data. For CSI, such safeguards result from the fact that we are directly bound by compliance with EU legislation in the context of personal data protection. For third parties, such safeguards may be the consequence of: 
+                    <ul>
+                        <li>The recipient country having legislation in place which may be considered equivalent to the protection offered within the EEA; or</li>
+                        <li>A contractual arrangement between us and that entity; or</li>
+                        <li>An approved certification mechanism, such as the EU-US Privacy Shield decision adopted by the European Commission on 12 July 2016.</li>
+                    </ul>
+                </li>
+                <li>We may transfer anonymized and/or aggregated data to organizations outside the EEA. Should such transfer take place, we will ensure that there are safeguards in place to ensure the safety and integrity of your data and all rights with respect to your personal data you might enjoy under applicable mandatory law.</li>
+            </ol>
+        </li>
+        <li><strong>WHAT QUALITY ASSURANCES DO WE COMPLY WITH?</strong>
+            <ol>
+                <li>We do our utmost best to process only those personal data which are necessary to achieve the purposes listed under Article 3 above.</li>
+                <li>Your personal data are only processed for as long as needed to achieve the purposes listed under Article 3 above or up until such time where you withdraw your consent for processing them. Your withdrawal of consent may imply that you can no longer use the whole or part of our Website. We will de-identify your personal data when they are no longer necessary for the purposes outlined in Article 3 above, unless there is:
+                    <ul>
+                        <li>An overriding interest of CSI, or any other third party, in keeping our personal data identifiable; or</li>
+                        <li>A legal or regulatory obligation or a judicial or administrative order that prevents us from de-identifying them.</li>
+                    </ul>
+                </li>
+                <li>You understand that an essential aspect of our marketing efforts pertains to making our marketing materials more relevant to you. We do this by customizing your unique profile based on relevant characteristics as outlined in Article 2 of this Privacy Policy and then use this profile to provide you with communications, promotions, offerings, newsletters and other promotional information about materials and services that may interest you.</li>
+                <li>We will take appropriate technical and organizational measures to keep your personal data safe from unauthorized access or theft as well as accidental loss tampering or destruction. Access by our staff members or third parties&rsquo; personnel will only be on a need-to-know basis and be subject to strict confidentiality obligations. You understand, however, that safety and security are best efforts obligations which can never be guaranteed.</li>
+                <li>If you are registered to receive promotional information, such as communications, promotions, offerings and newsletters, via e-mail or other person-to-person electronic communication channels, you can change your preferences for receiving such promotional information by clicking the opt-out link provided in such promotional information.</li>
+                <li>If you are registered to receive paper promotional information, such as magazines, communications, promotions, offerings and newsletters, you can object to receiving further promotional information on paper by submitting a request to our Data Protection Officer in accordance with Article 7.8 of this Privacy Policy.</li>
+            </ol>
+        </li>
+        <li><strong>WHAT ARE YOUR RIGHTS?</strong>
+            <ol>
+                <li>You have <u>the right to request access</u> to all personal data processed by us pertaining to you. We reserve the right to charge a reasonable administrative fee for multiple subsequent requests for access that are clearly submitted for causing nuisance or harm to us. Each request must specify for which processing activity you wish to exercise your right to access and must specify to which data categories you wish to gain access to.</li>
+                <li>You have <u>the right to rectification</u>, <em>e.</em> to ask that any personal data pertaining to you that are inaccurate, are corrected free of charge. If you submit a request for correction, your request needs to be accompanied of proof of the flawed nature of the data for which correction is asked.</li>
+                <li>You have <u>the right to withdraw your earlier given consent</u> for processing of your personal data.</li>
+                <li>You have <u>the right to erasure</u>, <em>e. </em>to request that personal data pertaining to you be deleted if these data are no longer required in the light of the purposes outlined in Article 3 above or if you withdraw your consent for processing them. However, you need to keep in mind that a request for deletion will be evaluated by us against:
+                    <ul>
+                        <li>Our and a third parties&rsquo; interests which may override your interests; or</li>
+                        <li>Legal or regulatory obligations or administrative or judicial orders which may contradict such deletion.</li>
+                    </ul>
+                </li>
+                <li>You have <u>the right to restriction</u> instead of deletion, <em>e. </em>to request that we limit the processing of your personal data if:
+                    <ul>
+                        <li>We are verifying the accuracy of your personal data; or</li>
+                        <li>The processing is unlawful and you oppose the deletion of your personal data; or</li>
+                        <li>You require your personal data to establish, exercise or defend a legal claim, while we do no longer need your personal data for the purposes listed under Article 3 above; or</li>
+                        <li>We are verifying whether our legitimate interests override your interests if you exercise your right to object in accordance with Article 7.6.</li>
+                    </ul>
+                </li>
+                <li>You have <u>the right to object</u> to the processing of personal data if:
+                    <ul>
+                        <li>The processing is based on our legitimate interest under Article 3 above; and</li>
+                        <li>You are able to prove that there are serious and justified reasons connected with your particular situation that warrant such objection; and</li>
+                        <li>Our legitimate interests do not override your interests.</li>
+                    </ul>
+                    <p>However, if the intended processing qualifies as direct marketing, you have the right to object to such processing free of charge and without justification.</p>
+                </li>
+                <li>You have <u>the right to data portability</u>, <em>e.</em> to receive from us in a structured, commonly-used and machine-readable format all personal data you have provided to us if the processing is based on your consent or a contract with you under Article 3 above.</li>
+                <li>If you wish to <u>submit a request</u> to exercise one or more of the rights listed above, you can contact our Data Protection Officer by sending an e-mail to <a href="mailto:dpo@scientology.net">dpo@scientology.net</a>. An e-mail requesting to exercise a right will not be construed as consent with the processing of your personal data beyond what is required for handling your request. Such request should meet the following conditions:
+                    <ul>
+                        <li>State clearly which right you wish to exercise; and</li>
+                        <li>State clearly the reasons for exercising your right if such is required; and</li>
+                        <li>Your request should be dated and signed; and</li>
+                        <li>Your request should be accompanied by a digitally scanned copy of your valid identity card proving your identity. If you use the contact form, we may ask you for your signed confirmation and proof of identity.</li>
+                    </ul>
+                    <p>We will promptly inform you of having received your request. If the request meets the conditions above and proves valid, we will honor it as soon as reasonably possible and at the latest thirty (30) days after having received your request.</p>
+                    <p>If you have any complaints regarding the processing of your personal data by us, you may always contact our Data Protection Officer by sending an e-mail to <a href="mailto:dpo@scientology.net">dpo@scientology.net</a>. If you remain unsatisfied with our response, you are free to file a complaint with the competent data protection authority.</p>
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+                </li>
+            </ol>
+        </li>
+    </ol>
+
+</main>
+<footer style="clear:both">
+            <div class="copyright">
+                &copy; 2016 Church of Scientology. All Rights Reserved.
+            </div>
+            <nav class="footer-links">
+                <a href="{% url 'privacy' %}">Datenschutzinformationen</a>
+                -
+                 <a href="{% url 'terms' %}">Nutzungsbedingungen</a>
+                -
+                 <a href="{% url 'leagal' %}">Rechtliche Informationen</a>
+                 -
+                 <a href="{% url 'cookie' %}">Cookie Policy</a>
+
+            </nav>
+        </footer>
+
+	</div>	
+</body>
+</html>

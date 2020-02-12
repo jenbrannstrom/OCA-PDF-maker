@@ -1,0 +1,131 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Terms Of Use</title>
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+	<div class="container">
+		<header>
+            <div id="logo">
+                <img src="{% static 'images/logo_en.png' %}" />
+            </div>
+            <div id="logo_spacer"></div>
+            <h1>Oxford Capacity Analysis&reg;<span id="personality_text"> | <span class="font-blue">Persönlichkeitstest</span></span>
+            {% if superuser %}
+                <a href="{% url 'user_detail' %}"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Admin Panel</a>
+            {% endif %}
+            </h1>
+        </header>
+<main>
+	<h2 class="title">TERMS OF USE</h2>
+<div>
+	<p>
+                Welcome to www.oxfordcapacityanalysis.org. The Church of Scientology International ("CSI") and/or its affiliated international organizations provide website features to you subject to the following Terms and our <a href="{% url 'privacy' %}">Privacy Notice</a>. If you visit this website, you accept these conditions. Please read them&nbsp;carefully.
+            </p>
+            <h3>
+                1. Scope and Addressees
+            </h3>
+            <p>
+                This website is operated and administered by CSI, located in Los Angeles, California, USA (see "<a href="{% url 'leagal' %}">Legal Notice</a>"), and therefore complies with the applicable&nbsp;law.
+            </p>
+	
+
+                
+    	            
+            <h3>
+                2. Data Privacy Protection
+            </h3>
+            <p>
+                Personally identifiable data of the user of the CSI website will be collected, used and processed in compliance with applicable laws on data privacy protection and the CSI website "<a href="{% url 'privacy' %}">Privacy Notice</a>", which is also available per hyperlink at the bottom of each page of this website.
+            </p>
+	
+
+    	            
+            <h3>
+                3. Intellectual Property Rights
+            </h3>
+            <h4>
+                3.1. Copyright Information
+            </h4>
+            <p>
+                All materials available on this site are protected by copyright laws and international copyright treaty provisions. This material has been placed on this Internet site under the authority of the copyright owner for the sole purpose of viewing of the materials by users of this site. Users are not authorized to download or transmit any of these materials electronically, or to otherwise reproduce any of the materials in any form or by any means, electronic or mechanical, including data storage and retrieval systems, recording, printing or photocopying unless otherwise expressly stated on this&nbsp;site.
+            </p>
+            <p>
+                © 1996-2018 CHURCH OF SCIENTOLOGY INTERNATIONAL. ALL RIGHTS&nbsp;RESERVED.
+            </p>
+            <p>
+                Grateful acknowledgement is made to L.&nbsp;Ron&nbsp;Hubbard Library for permission to reproduce selections from the copyrighted works of L.&nbsp;Ron&nbsp;Hubbard.
+            </p>
+            <h4>
+                3.2. Photographs of L.&nbsp;Ron&nbsp;Hubbard
+            </h4>
+            <p>
+                © 1953, 1958, 1979, 1991, 1996 L.&nbsp;RON&nbsp;HUBBARD LIBRARY. ALL RIGHTS&nbsp;RESERVED.
+            </p>
+            <h4>
+                3.3. Trademark Information
+            </h4>
+            <p>
+                Trademarks:
+            </p>
+            <p>
+                The following are trademarks and service marks owned by Religious Technology Center, Los Angeles, California, USA. These marks are licensed for use by the Church of Scientology International and its affiliated organizations and have been registered in many countries in the&nbsp;world.
+            </p>
+            <p>
+                HUBBARD, L.&nbsp;RON&nbsp;HUBBARD, L.&nbsp;RON&nbsp;HUBBARD signature, LRH, OXFORD CAPACITY ANALYSIS, SCIENTOLOGY, SCIENTOLOGY symbol, SCIENTOLOGY cross (pointed) SCIENTOLOGY cross (rounded), SCIENTOMETRIC.
+            </p>
+            <p>
+                SCIENTOLOGIST is a collective membership mark indicating membership in a church and church membership services of the affiliated Scientology churches and&nbsp;missions.
+            </p>
+	
+
+    	            
+            <h3>
+                4. Hyperlinks
+            </h3>
+            <p>
+                The Site may contain hyperlinks to the web pages of third parties. CSI shall have no liability for the contents of such web pages and does not make representations about or endorse such web pages or their contents as its own, as CSI does not control the information on such web pages and is not responsible for the contents and information given thereon. The use of such web pages shall be at the sole risk of the&nbsp;user.
+            </p>
+	
+
+    	            
+            <h3>
+                5. Applicable Law, Place of Jurisdiction
+            </h3>
+            <p>
+                These Terms of Use including its disclaimers, terms and conditions shall be governed by—and all disputes relating to or in connection with these Terms of Use or their subject matter shall be resolved in accordance with—the laws of the State of California, USA, without giving effect to any principles of conflicts of laws. CSI reserves the right to make changes to this site and these disclaimers, terms and conditions at any time. User hereby irrevocably and unconditionally consents to submit to the exclusive jurisdiction of the courts of the State of California and of the United States of America located in the State of California for any litigation arising out of or relating to use of this site (and agrees not to commence any litigation relating thereto except in such courts) waives any objection to the laying of venue of any such litigation in the State of California and agrees not to plead or claim in any California Court that such litigation brought therein has been brought in an inconvenient form.
+            </p>
+	
+
+    	            
+            <h3>
+                6. Severability
+            </h3>
+            <p>
+                The provisions of these Terms of Use are intended to be severable. If for any reason any provision of these Terms of Use shall be held invalid or unenforceable in whole or in part in any jurisdiction, such provision shall, as to such jurisdiction, be ineffective to the extent of such invalidity or unenforceability without in any manner affecting the validity or enforceability thereof in any other jurisdiction or the remaining provisions hereof in any&nbsp;jurisdiction.
+            </p>
+	
+
+
+</div>
+</main>
+<footer style="clear:both">
+            <div class="copyright">
+                &copy; 2016 Church of Scientology. All Rights Reserved.
+            </div>
+            <nav class="footer-links">
+                <a href="{% url 'privacy' %}">Datenschutzinformationen</a>
+                -
+                 <a href="{% url 'terms' %}">Nutzungsbedingungen</a>
+                -
+                 <a href="{% url 'leagal' %}">Rechtliche Informationen</a>
+                 -
+                 <a href="{% url 'cookie' %}">Cookie Policy</a>
+
+            </nav>
+        </footer>
+	</div>
+</body>
+</html>

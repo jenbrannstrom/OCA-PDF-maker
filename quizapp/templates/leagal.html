@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	
+<title>Privacy Policy - Church of Scientology International</title>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+	<header>
+            <div id="logo">
+                <img src="{% static 'images/logo_en.png' %}" />
+            </div>
+            <div id="logo_spacer"></div>
+            <h1>Oxford Capacity Analysis&reg;<span id="personality_text"> | <span class="font-blue">Persönlichkeitstest</span></span>
+            {% if superuser %}
+                <a href="{% url 'user_detail' %}"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Admin Panel</a>
+            {% endif %}
+            </h1>
+        </header>
+<main>
+     <h2 class="title">LEGAL NOTICE</h2>   
+     <p>
+                This website is owned and operated by The Church of Scientology International.
+            </p>
+
+            <h4>
+                To contact us:
+            </h4>
+
+            <div>
+                
+Church of Scientology International,<br/>
+6331 Hollywood Boulevard, <br/>
+Los Angeles, CA 90028, <br/>
+United States of America
+<br/>
+                Phone: +1 323-960-3500
+    
+            </div>
+    </main>
+<footer style="clear:both">
+            <div class="copyright">
+                &copy; 2016 Church of Scientology. All Rights Reserved.
+            </div>
+            <nav class="footer-links">
+                <a href="{% url 'privacy' %}">Datenschutzinformationen</a>
+                -
+                 <a href="{% url 'terms' %}">Nutzungsbedingungen</a>
+                -
+                 <a href="{% url 'leagal' %}">Rechtliche Informationen</a>
+                 -
+                 <a href="{% url 'cookie' %}">Cookie Policy</a>
+
+            </nav>
+        </footer>
+        </div>  
+</body>
+</html>

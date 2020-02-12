@@ -1,0 +1,177 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <!-- <link href="invoice.css" media="print" rel="stylesheet"> -->
+    <title>Result</title>
+    <meta name="description" content="Invoice demo sample">
+    <meta name="author" content="Kozea">
+     <link rel="stylesheet" href="{% static 'css/pdf_style.css' %}" />
+              <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-P264FHQ');</script>
+        <!-- End Google Tag Manager -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+       
+
+        <title>Free Personality Test - Scientology Tampa</title>
+        <link rel="stylesheet" href="{% static 'css/combined-styles.min.css' %}" />
+
+        <!-- Facebook Pixel Code -->
+        <script>
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window,document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '267373927496346'); 
+            fbq('track', 'PageView');
+            fbq('track', 'Lead');
+        </script>
+        <noscript>
+             <img height="1" width="1" 
+            src="https://www.facebook.com/tr?id=267373927496346&ev=PageView
+            &noscript=1"/>
+        </noscript>
+        <!-- End Facebook Pixel Code -->  
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"/>
+        <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.6/css/buttons.dataTables.min.css"/>  
+
+    </head>
+  </head>
+
+  <body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P264FHQ"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+    <header>
+        <div id="logo">
+            <img src="{% static 'images/logo_en.png' %}" />
+        </div>
+        <div id="logo_spacer"></div>
+        <h1>Free Personality Test<span id="personality_text"> | <span class="font-blue"></span>Oxford Capacity Analysis</span>
+        <a href="{% url 'registeration' %}" > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Home </a>
+        </h1>
+    </header>
+
+    <main  style="width: 100%;">
+      <h1>Survey Details</h1>
+
+        <!-- 'user': user, 'questions':questions ,'answer':ans -->
+
+        <aside> 
+          <address id="from">
+            {{user.firstname}} &nbsp;
+            {{user.age}} &nbsp;
+            {{user.phone}} &nbsp;
+            {{user.gender}}  &nbsp;          
+            {{user.problem}} &nbsp;
+            {{user.email}} &nbsp;      
+          </address>     
+        </aside>
+
+       <!--  <dl id="informations">      
+          <dt>Date</dt>
+          <dd>{{date}}</dd>
+          <dt>Time</dt>
+          <dd>{{time}}</dd>
+        </dl> -->
+        <br>
+
+        <table  id="example2">
+          <thead>
+            <th>S No.</th>
+            <th>Question</th>
+            <th>Answer</th>       
+          </thead>
+          <tbody>    
+            {% for ans in answers %}
+            <tr>
+              <td>{{ forloop.counter  }} </td>
+              <td>{{ ans.question }}</td>
+              <!-- <td class="line-content">{{ ans.question }}</td> -->
+              <td>{{ ans.answer }} </td>         
+            </tr> 
+            {% endfor %}
+            
+          </tbody>
+        </table> 
+        <br>
+
+       <!--  <ul id="pagin">
+         
+        </ul> -->
+
+    </main>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.flash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.print.min.js"></script>
+
+    <script>
+
+      $(document).ready(function(){
+
+          $('#example2').DataTable({
+            "searching": false, 
+            "paging": false,       
+            dom: 'Bfrtip',
+            buttons: [
+                   'csv', 'excel', 'pdf' //, 'pageLength'
+            ],      
+            // "lengthMenu": [[50, 100, 150, -1], [50, 100, 150, "All"]],
+              
+          });
+
+
+          pageSize =100;
+          var pageCount =  $(".line-content").length / pageSize;
+            
+          for(var i = 0 ; i<pageCount;i++){                
+            $("#pagin").append('<li><a href="#">'+(i+1)+'</a></li> ');
+          }
+
+          $("#pagin li").first().find("a").addClass("current")
+
+          showPage = function(page) {
+              $(".line-content").hide();
+              $(".line-content").each(function(n) {
+                  if (n >= pageSize * (page - 1) && n < pageSize * page)
+                      $(this).show();
+              });        
+          }
+            
+          showPage(1);
+
+          $("#pagin li a").click(function() {
+              $("#pagin li a").removeClass("current");
+              $(this).addClass("current");
+              showPage(parseInt($(this).text())) 
+          });
+
+
+      });
+
+    </script>
+   
+  </body>
+</html>
